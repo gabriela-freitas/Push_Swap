@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/05 19:05:30 by gafreita         ###   ########.fr       */
+/*   Created: 2022/01/25 15:08:02 by gafreita          #+#    #+#             */
+/*   Updated: 2022/03/03 21:09:04 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include "libft/libft.h"
-
-typedef struct s_list
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	size_t	i;
 
-#endif
+	if (n == 0)
+		return (0);
+	i = 0;
+	while ((unsigned char)s1[i] == (unsigned char)s2[i]
+		&& i < n - 1 && s1[i])
+		i ++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

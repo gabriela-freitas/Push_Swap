@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/05 19:05:30 by gafreita         ###   ########.fr       */
+/*   Created: 2022/02/19 19:08:48 by gafreita          #+#    #+#             */
+/*   Updated: 2022/02/21 19:29:13 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include "libft/libft.h"
-
-typedef struct s_list
+void	ft_bzero(void *s, size_t n)
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	size_t	i;
 
-#endif
+	i = 0;
+	while (i < n)
+	{
+		*((char *)s + i) = 0;
+		i ++;
+	}
+}

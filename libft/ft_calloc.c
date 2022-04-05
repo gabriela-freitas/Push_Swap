@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/05 19:05:30 by gafreita         ###   ########.fr       */
+/*   Created: 2022/02/20 23:51:33 by gafreita          #+#    #+#             */
+/*   Updated: 2022/02/22 16:25:43 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include "libft/libft.h"
-
-typedef struct s_list
+void	*ft_calloc(size_t count, size_t size)
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	void	*ptr;
+	size_t	i;
 
-#endif
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (NULL);
+	i = -1;
+	while (++i < count * size)
+		*((char *)ptr + i) = 0;
+	return (ptr);
+}

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/05 19:05:30 by gafreita         ###   ########.fr       */
+/*   Created: 2022/02/20 23:12:02 by gafreita          #+#    #+#             */
+/*   Updated: 2022/02/28 18:43:31 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include "libft/libft.h"
-
-typedef struct s_list
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	size_t	i;
 
-#endif
+	i = 0;
+	while (i < n)
+	{
+		if (*((char *)s + i) == (char) c)
+			return ((void *)s + i);
+		i += sizeof(char);
+	}
+	return (NULL);
+}

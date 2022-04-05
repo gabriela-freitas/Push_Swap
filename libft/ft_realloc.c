@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/05 19:05:30 by gafreita         ###   ########.fr       */
+/*   Created: 2022/02/23 22:25:56 by gafreita          #+#    #+#             */
+/*   Updated: 2022/02/23 22:57:10 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include "libft/libft.h"
-
-typedef struct s_list
+char	*ft_realloc(char *old, size_t old_size, size_t new_size)
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	char	*new;
 
-#endif
+	if (!old)
+		return ((char *)malloc((new_size)));
+	new = (char *)malloc((new_size));
+	if (!new)
+		return (NULL);
+	ft_memcpy(new, old, old_size);
+	free(old);
+	return (new);
+}
