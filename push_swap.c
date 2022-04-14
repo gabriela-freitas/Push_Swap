@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/07 21:57:44 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/07 22:04:13 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int *check_input(int ac, char **av)
 {
-	int *input_array;
-	static int index = 0;
-	int j;
-	int check;
-    
+	int	*input_array;
+	int	i;
+	int	j;
+	int	check;
+
 	input_array = (int)malloc(ac * sizeof(int));
 	if (input_array == NULL)
 		return (NULL);
