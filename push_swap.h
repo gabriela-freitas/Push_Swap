@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/21 18:18:36 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/21 21:10:10 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ typedef struct s_stack
 
 typedef struct s_info
 {
-	t_stack	head_a;
+	t_stack	*head_a;
 	int		size_a;
-	t_stack	head_b;
+	t_stack	*head_b;
 	int		size_b;
 }	t_info;
 
@@ -41,14 +41,16 @@ int			t_stack_size(t_stack *lst);
 void		t_stack_add_back(t_stack *lst, t_stack *new);
 void		t_stack_add_front(t_stack *lst, t_stack *new);
 //utils.c
-int			check_sorted_ascending(t_stack *stack);
-int			check_sorted_descending(t_stack *lst);
+int			check_sorted_asc(t_stack *stack);
+	//int			check_sorted_descending(t_stack *lst);
 void		selection_sort_array(int *array, int size);
 int			check_duplicates(t_stack *lst);
+void		free_stack(t_stack *head);
+void		free_info(t_info *info);
 //TODO: moves.c
 //TODO: push_swap.c
 //print_stuff.c
-void		print_infos(t_info info);
+void		print_infos(t_info *info);
 void		print_node(t_stack *node);
 
 #endif

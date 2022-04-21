@@ -6,13 +6,11 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:25:25 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/21 18:27:49 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/21 20:16:10 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-//TODO: function to free a stack's memory
 
 //Returns the last node of the list.
 t_stack	*t_stack_last(t_stack *lst)

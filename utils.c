@@ -6,14 +6,33 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:57:58 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/21 17:41:49 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/21 21:10:02 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//function to free a stack's memory
+void	free_stack(t_stack *head)
+{
+	t_stack	*aux;
+
+	while (head)
+	{
+		aux = head->next;
+		free(head);
+		head = aux;
+	}
+}
+
+void	free_info(t_info *info)
+{
+	free_stack(info->head_a);
+	free_stack(info->head_b);
+}
+
 //FIXME: check if a stack is sorted >> ascending order
-int	check_sorted_ascending(t_stack *stack)
+int	check_sorted_asc(t_stack *stack)
 {
 	t_stack		*next;
 	t_stack		*temp;
