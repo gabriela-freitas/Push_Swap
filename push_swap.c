@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/19 23:22:30 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/21 18:28:59 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	check_input(t_info *stacks, char **av)
 	int		i;
 	int		j;
 
-	i = -1;
+	i = 0;
 	stacks->head_a.next = NULL;
-	while (av[i])
+	while (av[++i])
 	{
 		j = -1;
 		while (av[i][++j])
@@ -31,7 +31,7 @@ int	check_input(t_info *stacks, char **av)
 		}
 		t_stack_add_back(&(stacks->head_a), t_stack_new(ft_atoi(av[i])));
 	}
-	if (check_sorted_ascending(&(stacks->head_a)) == -1)
+	if (!check_duplicates(&(stacks->head_a)))
 		return (0);
 	stacks->size_a = t_stack_size(&(stacks->head_a));
 	return (1);
@@ -50,16 +50,20 @@ int	main(int ac, char **av)
 			split = ft_split(av[1], ' ');
 			if (!check_input(&stacks, split))
 			{
+				//TODO: free the memory already allocated on the stack
 				ft_printf("Error");
+				free(split);
 				return (0);
 			}
 			free(split);
 		}
 		else if (!check_input(&stacks, av))
 		{
+			//TODO: free the memory already allocated on the stack
 			ft_printf("Error");
 			return (0);
 		}
+		print_infos(stacks);
 	}
 	else
 		return (0);

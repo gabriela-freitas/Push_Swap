@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:57:58 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/19 23:27:47 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/21 17:41:49 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,32 @@ int	check_sorted_ascending(t_stack *stack)
 	t_stack		*temp;
 
 	temp = stack;
-	while (temp != NULL)
+	while (temp && temp->next)
 	{
 		next = temp->next;
 		if (temp->value > next->value)
 			return (0);
-		if (temp->value == next->value)
-			return (-1);
 		temp = next;
 	}
 	return (1);
 }
 //FIXME: check if a stack is sorted >> descending order
 
-int	check_sorted_descending(t_stack *lst)
-{
-	t_stack		*next;
-	t_stack		*temp;
+// int	check_sorted_descending(t_stack *lst)
+// {
+// 	t_stack		*next;
+// 	t_stack		*temp;
 
-	temp = lst;
-	while (temp != NULL)
-	{
-		next = temp->next;
-		if (temp->value < next->value)
-			return (0);
-		temp = next;
-	}
-	return (1);
-}
+// 	temp = lst;
+// 	while (temp && temp->next)
+// 	{
+// 		next = temp->next;
+// 		if (temp->value < next->value)
+// 			return (0);
+// 		temp = next;
+// 	}
+// 	return (1);
+// }
 
 //FIXME: Sort an array
 void	selection_sort_array(int *array, int size)
@@ -69,4 +67,25 @@ void	selection_sort_array(int *array, int size)
 			}
 		}
 	}
+}
+
+//function to check for duplicates
+int	check_duplicates(t_stack *lst)
+{
+	t_stack	*aux;
+	t_stack	*temp;
+
+	temp = lst;
+	while (temp)
+	{
+		aux = temp->next;
+		while (aux)
+		{
+			if (aux->value == temp->value)
+				return (0);
+			aux = aux->next;
+		}
+		temp = temp->next;
+	}
+	return (1);
 }

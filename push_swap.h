@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/19 23:27:58 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/21 18:18:36 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,11 @@ void		t_stack_add_front(t_stack *lst, t_stack *new);
 int			check_sorted_ascending(t_stack *stack);
 int			check_sorted_descending(t_stack *lst);
 void		selection_sort_array(int *array, int size);
+int			check_duplicates(t_stack *lst);
 //TODO: moves.c
 //TODO: push_swap.c
+//print_stuff.c
+void		print_infos(t_info info);
+void		print_node(t_stack *node);
 
 #endif

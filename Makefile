@@ -6,7 +6,7 @@
 #    By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 22:23:09 by gafreita          #+#    #+#              #
-#    Updated: 2022/04/19 23:38:38 by gafreita         ###   ########.fr        #
+#    Updated: 2022/04/21 17:50:35 by gafreita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME =	push_swap
 
 SRCS =	functions_lists.c \
 		push_swap.c \
-		utils.c
+		utils.c \
+		print_stuff.c 
 
 OBJS =	$(SRCS:%.c=%.o)
 
@@ -37,7 +38,7 @@ $(NAME): $(OBJS) | libft
 all: $(NAME)
 
 %.o: %.c
-	@$(CC) $(INCLUDES) -c $(^) -o $(@)
+	@$(CC) -g $(INCLUDES) -c $(^) -o $(@)
 
 libft:
 	@make -C libft/
