@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/21 21:10:05 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/22 19:30:39 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ int	main(int ac, char **av)
 	}
 	else
 		return (0);
+	//test moves
+	pb(&stacks);
+	pb(&stacks);
+	pb(&stacks);
+	sa(&stacks);
+	//sb(&stacks);
+	//ss(&stacks);
+	//pa(&stacks);
+
+	print_infos(&stacks);
 }
 
 //deals with ./push_swap "0 1 2" or ./push_swap 0 1 2

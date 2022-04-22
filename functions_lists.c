@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:25:25 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/21 20:16:10 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/22 19:01:20 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,24 @@ int	t_stack_size(t_stack *lst)
 void	t_stack_add_back(t_stack *lst, t_stack *new)
 {
 	if (!lst)
-	{
-		//ft_printf("list == NULL\n");
-		// lst->value = new->value;
-		// lst->next = NULL;
 		lst = new;
-		//free(new);
-	}
 	else
-	{
-		//ft_printf("lst not NULL\n");
 		t_stack_last(lst)->next = new;
-	}
 }
 
 //Adds the node ’new’ at the beginning of the list
-void	t_stack_add_front(t_stack *lst, t_stack *new)
+void	t_stack_add_front(t_stack **lst, t_stack *new)
 {
-	if (!lst || !new)
+	if (!new)
 		return ;
-	new->next = lst;
-	lst = new;
+	if (!*lst)
+	{
+		*lst = new;
+		(*lst)->next = NULL;
+	}
+	else
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }

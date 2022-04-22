@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:57:58 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/21 21:10:02 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/22 15:39:57 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	check_sorted_asc(t_stack *stack)
 // 	return (1);
 // }
 
-//FIXME: Sort an array
 void	selection_sort_array(int *array, int size)
 {
 	int	aux;
