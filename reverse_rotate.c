@@ -1,42 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 19:07:32 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/24 18:44:21 by gafreita         ###   ########.fr       */
+/*   Created: 2022/04/24 18:54:33 by gafreita          #+#    #+#             */
+/*   Updated: 2022/04/24 19:09:20 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack **head, t_stack **next)
+//The last element becomes the first one.
+static void	reverse_rotate(t_stack **head)
 {
 	t_stack	*aux;
 
 	aux = *head;
-	(*head) = *next;
-	(aux)->next = (*next)->next;
-	(*head)->next = aux;
+	while ((aux->next)->next)
+		aux = aux->next;
+	t_stack_add_front(head, t_stack_last(*head));
+	aux->next = NULL;
 }
 
-void	sa(t_info *stacks)
+void	rra(t_info *stacks)
 {
-	swap(&(stacks->head_a), &(stacks->head_a->next));
-	ft_printf("sa\n");
+	reverse_rotate(&(stacks->head_a));
+	ft_printf("rra\n");
 }
 
-void	sb(t_info *stacks)
+void	rrb(t_info *stacks)
 {
-	swap(&(stacks->head_b), &(stacks->head_b->next));
-	ft_printf("sb\n");
+	reverse_rotate(&(stacks->head_b));
+	ft_printf("rrb\n");
 }
 
-void	ss(t_info *stacks)
+void	rrr(t_info *stacks)
 {
-	swap(&(stacks->head_a), &(stacks->head_a->next));
-	swap(&(stacks->head_b), &(stacks->head_b->next));
-	ft_printf("ss\n");
+	reverse_rotate(&(stacks->head_a));
+	reverse_rotate(&(stacks->head_b));
+	ft_printf("rrr\n");
 }

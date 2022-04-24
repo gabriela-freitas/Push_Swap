@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/22 19:14:36 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/24 19:01:47 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,14 @@ void		pb(t_info *stacks);
 void		sb(t_info *stacks);
 void		ss(t_info *stacks);
 void		sa(t_info *stacks);
+//rotate.c
+void		ra(t_info *stacks);
+void		rb(t_info *stacks);
+void		rr(t_info *stacks);
+//reverse_rotate.c
+void		rra(t_info *stacks);
+void		rrb(t_info *stacks);
+void		rrr(t_info *stacks);
 //print_stuff.c
 void		print_infos(t_info *info);
 void		print_node(t_stack *node);
