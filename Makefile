@@ -6,7 +6,7 @@
 #    By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 22:23:09 by gafreita          #+#    #+#              #
-#    Updated: 2022/04/24 18:54:06 by gafreita         ###   ########.fr        #
+#    Updated: 2022/04/24 21:45:22 by gafreita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS =	functions_lists.c \
 		push.c \
 		swap.c \
 		rotate.c \
-		reverse_rotate.c
+		reverse_rotate.c \
+		small_sort.c
 
 OBJS =	$(SRCS:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/24 19:05:17 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/24 21:45:00 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,8 @@ int	main(int ac, char **av)
 	}
 	else
 		return (0);
-	//test moves
-	pb(&stacks);
-	pb(&stacks);
-	pb(&stacks);
-	rrr(&stacks);
-	//ss(&stacks);
-	//pa(&stacks);
+	if (stacks.size_a == 3)
+		sort_three(&stacks);
 	print_infos(&stacks);
 	free_stack(stacks.head_a);
 	free_stack(stacks.head_b);
