@@ -6,13 +6,30 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 21:38:04 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/26 21:23:49 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/26 21:36:48 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_info *stacks)
+static void	sort_three(t_info *stacks);
+static int	check_last_move(t_info *stacks);
+static void	sort_five(t_info *stacks);
+static void	sort_four(t_info *stacks);
+
+void	small_sort(t_info *stacks)
+{
+	if (stacks->size_a == 2)
+		sa(stacks);
+	if (stacks->size_a == 3)
+		sort_three(stacks);
+	if (stacks->size_a == 4)
+		sort_four(stacks);
+	if (stacks->size_a == 5)
+		sort_five(stacks);
+}
+
+static void	sort_three(t_info *stacks)
 {
 	static int	size;
 
@@ -30,7 +47,7 @@ void	sort_three(t_info *stacks)
 }
 
 //function to check if its one movement away from ordering
-int	check_last_move(t_info *stacks)
+static int	check_last_move(t_info *stacks)
 {
 	t_stack	*head;
 	int		size;
@@ -56,7 +73,7 @@ int	check_last_move(t_info *stacks)
 	return (1);
 }
 
-void	sort_five(t_info *stacks)
+static void	sort_five(t_info *stacks)
 {
 	if (stacks->size_a >= 4)
 	{
@@ -74,4 +91,23 @@ void	sort_five(t_info *stacks)
 	if (stacks->size_a == 5 && check_last_move(stacks))
 		return ;
 	sort_five(stacks);
+}
+
+static void	sort_four(t_info *stacks)
+{
+	if (stacks->size_a == 4 && check_last_move(stacks))
+		return ;
+	if (stacks->size_a == 4)
+	{
+		if (stacks->head_a->index == 0)
+			pb(stacks);
+		else
+			ra(stacks);
+	}
+	if (stacks->size_a == 3)
+	{
+		sort_three(stacks);
+		pa(stacks);
+	}
+	sort_four(stacks);
 }
