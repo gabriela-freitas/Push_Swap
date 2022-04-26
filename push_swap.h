@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/24 21:43:37 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/26 18:48:31 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int			check_sorted_asc(t_stack *stack);
 	//int			check_sorted_descending(t_stack *lst);
 void		selection_sort_array(int *array, int size);
 int			check_duplicates(t_stack *lst);
+//FIXME: simplify those functions and check for leaks on valgrind
 void		free_stack(t_stack *head);
 void		free_info(t_info *info);
 //push.c
@@ -67,5 +68,6 @@ void		print_infos(t_info *info);
 void		print_node(t_stack *node);
 //small_sort.c
 void		sort_three(t_info *stacks);
+void		sort_five(t_info *stacks);
 
 #endif
