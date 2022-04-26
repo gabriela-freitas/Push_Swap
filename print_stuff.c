@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 17:42:33 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/26 20:21:21 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/26 23:49:18 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_infos(t_info *info)
 		ft_printf("\tThere's no stack A!\n");
 	while (aux)
 	{
-		ft_printf("\tvalue: %d >>> index: %d\n", aux->value, aux->index);
+		ft_printf("\tvalue: %d\tindex: %d\n", aux->value, aux->index);
 		aux = aux->next;
 	}
 	ft_printf("\n\tStack B size: %d\n", info->size_b);
@@ -31,7 +31,7 @@ void	print_infos(t_info *info)
 		ft_printf("\tThere's no stack B!\n\n");
 	while (aux)
 	{
-		ft_printf("\tvalue: %d >>> index: %d\n", aux->value, aux->index);
+		ft_printf("\tvalue: %d\tindex: %d\n", aux->value, aux->index);
 		aux = aux->next;
 	}
 }

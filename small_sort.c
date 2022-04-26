@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 21:38:04 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/26 21:36:48 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/27 00:12:50 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,24 +61,30 @@ static int	check_last_move(t_info *stacks)
 		sa(stacks);
 	if (t_stack_last(head)->index == 0)
 	{
-		reverse_rotate(&head);
-		if (!check_sorted_asc(head))
+		reverse_rotate(&(stacks->head_a));
+		if (!check_sorted_asc(stacks->head_a))
 		{
-			rotate(&head);
+			rotate(&(stacks->head_a));
 			return (0);
 		}
+		ft_printf("rra\n");
 	}
-	if (!check_sorted_asc(head))
+	if (!check_sorted_asc(stacks->head_a))
 		return (0);
 	return (1);
 }
 
 static void	sort_five(t_info *stacks)
 {
+	if (stacks->size_a == 5 && check_last_move(stacks))
+		return ;
 	if (stacks->size_a >= 4)
 	{
 		if (stacks->head_a->index == 0 || stacks->head_a->index == 1)
 			pb(stacks);
+		else if (t_stack_last(stacks->head_a)->index == 0
+			|| t_stack_last(stacks->head_a)->index == 1)
+			rra(stacks);
 		else
 			ra(stacks);
 	}
@@ -88,8 +94,6 @@ static void	sort_five(t_info *stacks)
 		pa(stacks);
 		pa(stacks);
 	}
-	if (stacks->size_a == 5 && check_last_move(stacks))
-		return ;
 	sort_five(stacks);
 }
 
@@ -101,6 +105,8 @@ static void	sort_four(t_info *stacks)
 	{
 		if (stacks->head_a->index == 0)
 			pb(stacks);
+		else if (t_stack_last(stacks->head_a)->index == 0)
+			rra(stacks);
 		else
 			ra(stacks);
 	}
