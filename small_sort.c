@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 21:38:04 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/26 21:21:25 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/26 21:23:49 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,11 @@ int	check_last_move(t_info *stacks)
 
 	head = stacks->head_a;
 	size = stacks->size_a;
-	if (check_sorted_asc(head))
-		return (1);
 	if (head->index == size - 1 && check_sorted_asc(head->next))
-	{
 		ra(stacks);
-		return (1);
-	}
 	if (head->index == 1 && head->next->index == 0
 		&& check_sorted_asc(head->next->next))
-	{
 		sa(stacks);
-		return (1);
-	}
 	if (t_stack_last(head)->index == 0)
 	{
 		reverse_rotate(&head);
@@ -59,7 +51,9 @@ int	check_last_move(t_info *stacks)
 			return (0);
 		}
 	}
-	return (0);
+	if (!check_sorted_asc(head))
+		return (0);
+	return (1);
 }
 
 void	sort_five(t_info *stacks)
