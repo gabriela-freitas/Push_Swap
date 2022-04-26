@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 18:06:24 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/24 18:59:04 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/26 20:07:09 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //The first element becomes the last one.
 
-static void	rotate(t_stack **head)
+void	rotate(t_stack **head)
 {
 	t_stack	*aux;
 

@@ -6,14 +6,14 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 18:54:33 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/24 19:09:20 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/26 20:05:52 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //The last element becomes the first one.
-static void	reverse_rotate(t_stack **head)
+void	reverse_rotate(t_stack **head)
 {
 	t_stack	*aux;
 

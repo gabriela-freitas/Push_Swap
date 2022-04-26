@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/26 19:48:43 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/26 21:06:47 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ typedef struct s_info
 	int		size_a;
 	t_stack	*head_b;
 	int		size_b;
+	int 	all;
 }	t_info;
 
-//functions_lists.c
+//new_lists.c
 t_stack		*t_stack_last(t_stack *lst);
 t_stack		*t_stack_new(int value);
 int			t_stack_size(t_stack *lst);
@@ -56,10 +57,12 @@ void		sb(t_info *stacks);
 void		ss(t_info *stacks);
 void		sa(t_info *stacks);
 //rotate.c
+void		rotate(t_stack **head);
 void		ra(t_info *stacks);
 void		rb(t_info *stacks);
 void		rr(t_info *stacks);
 //reverse_rotate.c
+void		reverse_rotate(t_stack **head);
 void		rra(t_info *stacks);
 void		rrb(t_info *stacks);
 void		rrr(t_info *stacks);
@@ -69,5 +72,6 @@ void		print_node(t_stack *node);
 //small_sort.c
 void		sort_three(t_info *stacks);
 void		sort_five(t_info *stacks);
+int		check_last_move(t_info *stacks);
 
 #endif

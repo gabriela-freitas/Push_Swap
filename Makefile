@@ -6,13 +6,13 @@
 #    By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 22:23:09 by gafreita          #+#    #+#              #
-#    Updated: 2022/04/24 21:45:22 by gafreita         ###   ########.fr        #
+#    Updated: 2022/04/26 19:51:36 by gafreita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	push_swap
 
-SRCS =	functions_lists.c \
+SRCS =	new_lists.c \
 		push_swap.c \
 		utils.c \
 		print_stuff.c \
