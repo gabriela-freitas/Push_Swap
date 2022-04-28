@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 18:06:24 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/26 20:07:09 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:27:52 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ void	rotate(t_stack **head)
 	aux->next = NULL;
 }
 
-void	ra(t_info *stacks)
+int	ra(t_info *stacks)
 {
 	rotate(&(stacks->head_a));
-	ft_printf("ra\n");
+	return (ft_printf("ra\n"));
 }
 
-void	rb(t_info *stacks)
+int	rb(t_info *stacks)
 {
 	rotate(&(stacks->head_b));
-	ft_printf("rb\n");
+	return (ft_printf("rb\n"));
 }
 
-void	rr(t_info *stacks)
+int	rr(t_info *stacks)
 {
 	rotate(&(stacks->head_a));
 	rotate(&(stacks->head_b));
-	ft_printf("rr\n");
+	return (ft_printf("rr\n"));
 }

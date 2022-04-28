@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 15:11:08 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/22 19:03:05 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:27:02 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ static void	push(t_stack **donator, t_stack **receiver)
 	t_stack_add_front(receiver, aux);
 }
 
-void	pa(t_info *stacks)
+int	pa(t_info *stacks)
 {
 	push(&stacks->head_b, &stacks->head_a);
 	stacks->size_a = t_stack_size(stacks->head_a);
 	stacks->size_b = t_stack_size(stacks->head_b);
-	ft_printf("pa\n");
+	return (ft_printf("pa\n"));
 }
 
-void	pb(t_info *stacks)
+int	pb(t_info *stacks)
 {
 	push(&stacks->head_a, &stacks->head_b);
 	stacks->size_a = t_stack_size(stacks->head_a);
 	stacks->size_b = t_stack_size(stacks->head_b);
-	ft_printf("pb\n");
+	return (ft_printf("pb\n"));
 }

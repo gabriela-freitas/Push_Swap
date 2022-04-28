@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/28 22:18:31 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:50:40 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int ac, char **av)
 {
 	t_info	stacks;
 
+	stacks.head_a = NULL;
+	stacks.head_b = NULL;
 	if (ac > 1)
 	{
 		if (!deal_input(ac, av, &stacks) || check_sorted_asc(stacks.head_a))
@@ -50,10 +52,10 @@ static int	deal_input(int ac, char **av, t_info *stacks)
 		{
 			free_stack(stacks->head_a);
 			ft_printf("Error");
-			free(split);
+			free_split(split);
 			return (0);
 		}
-		free(split);
+		free_split(split);
 	}
 	else if (!check_input(stacks, av))
 	{

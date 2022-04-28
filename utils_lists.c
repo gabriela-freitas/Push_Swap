@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_lists.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:57:58 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/28 22:11:01 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:49:29 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,15 @@ void	free_info(t_info *info)
 	free_stack(info->head_b);
 }
 
-//check if a stack is sorted >> ascending order
-int	check_sorted_asc(t_stack *stack)
+void	free_split(char **split)
 {
-	t_stack		*next;
-	t_stack		*temp;
+	int		i;
 
-	temp = stack;
-	while (temp && temp->next)
-	{
-		next = temp->next;
-		if (temp->value > next->value)
-			return (0);
-		temp = next;
-	}
-	return (1);
+	i = -1;
+	while (split[++i])
+		free(split[i]);
 }
+
 //FIXME: check if a stack is sorted >> descending order
 
 // int	check_sorted_descending(t_stack *lst)

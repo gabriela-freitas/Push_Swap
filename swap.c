@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:07:32 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/24 18:44:21 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:28:20 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@ static void	swap(t_stack **head, t_stack **next)
 	(*head)->next = aux;
 }
 
-void	sa(t_info *stacks)
+int	sa(t_info *stacks)
 {
 	swap(&(stacks->head_a), &(stacks->head_a->next));
-	ft_printf("sa\n");
+	return (ft_printf("sa\n"));
 }
 
-void	sb(t_info *stacks)
+int	sb(t_info *stacks)
 {
 	swap(&(stacks->head_b), &(stacks->head_b->next));
-	ft_printf("sb\n");
+	return (ft_printf("sb\n"));
 }
 
-void	ss(t_info *stacks)
+int	ss(t_info *stacks)
 {
 	swap(&(stacks->head_a), &(stacks->head_a->next));
 	swap(&(stacks->head_b), &(stacks->head_b->next));
-	ft_printf("ss\n");
+	return (ft_printf("ss\n"));
 }
