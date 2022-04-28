@@ -6,44 +6,39 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 21:38:04 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/27 00:12:50 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 20:28:56 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	sort_three(t_info *stacks);
+static void	sort_three(t_info *stacks, t_stack *head);
 static int	check_last_move(t_info *stacks);
-static void	sort_five(t_info *stacks);
-static void	sort_four(t_info *stacks);
+static void	sort_small(t_info *stacks);
 
 void	small_sort(t_info *stacks)
 {
 	if (stacks->size_a == 2)
 		sa(stacks);
-	if (stacks->size_a == 3)
-		sort_three(stacks);
-	if (stacks->size_a == 4)
-		sort_four(stacks);
-	if (stacks->size_a == 5)
-		sort_five(stacks);
+	else
+		sort_small(stacks);
 }
 
-static void	sort_three(t_info *stacks)
+static void	sort_three(t_info *stacks, t_stack *head)
 {
 	static int	size;
 
 	size = stacks->all - 1;
-	if (check_sorted_asc(stacks->head_a))
+	if (check_sorted_asc(head))
 		return ;
-	else if (stacks->head_a->index == size)
+	else if (head->index == size)
 		ra(stacks);
-	else if (stacks->head_a->next->index == size - 2
-		|| stacks->head_a->index == size - 2)
+	else if (head->next->index == size - 2
+		|| head->index == size - 2)
 		sa(stacks);
-	else if (t_stack_last(stacks->head_a)->index == size - 2)
+	else if (t_stack_last(head)->index == size - 2)
 		rra(stacks);
-	sort_three(stacks);
+	sort_three(stacks, head);
 }
 
 //function to check if its one movement away from ordering
@@ -74,46 +69,50 @@ static int	check_last_move(t_info *stacks)
 	return (1);
 }
 
-static void	sort_five(t_info *stacks)
+static int	pb_or_rra(t_info *stacks, int size)
 {
-	if (stacks->size_a == 5 && check_last_move(stacks))
-		return ;
-	if (stacks->size_a >= 4)
+	int	i;
+	int	check;
+
+	check = 0;
+	i = -1;
+	while (++i < size - 3)
 	{
-		if (stacks->head_a->index == 0 || stacks->head_a->index == 1)
+		if (stacks->head_a->index == i)
+		{
 			pb(stacks);
-		else if (t_stack_last(stacks->head_a)->index == 0
-			|| t_stack_last(stacks->head_a)->index == 1)
+			check ++;
+			return (1);
+		}
+		else if (t_stack_last(stacks->head_a)->index == i)
+		{
 			rra(stacks);
-		else
-			ra(stacks);
+			check ++;
+			return (1);
+		}
 	}
-	if (stacks->size_a == 3)
-	{
-		sort_three(stacks);
-		pa(stacks);
-		pa(stacks);
-	}
-	sort_five(stacks);
+	return (0);
 }
 
-static void	sort_four(t_info *stacks)
+static void	sort_small(t_info *stacks)
 {
-	if (stacks->size_a == 4 && check_last_move(stacks))
+	int	size;
+	int	i;
+
+	size = stacks->all;
+	if (stacks->size_a == size && check_last_move(stacks))
 		return ;
-	if (stacks->size_a == 4)
+	if (stacks->size_a > 3)
 	{
-		if (stacks->head_a->index == 0)
-			pb(stacks);
-		else if (t_stack_last(stacks->head_a)->index == 0)
-			rra(stacks);
-		else
+		if (pb_or_rra(stacks, size) == 0)
 			ra(stacks);
 	}
 	if (stacks->size_a == 3)
 	{
-		sort_three(stacks);
-		pa(stacks);
+		sort_three(stacks, stacks->head_a);
+		i = -1;
+		while (++i < size - 3)
+			pa(stacks);
 	}
-	sort_four(stacks);
+	sort_small(stacks);
 }
