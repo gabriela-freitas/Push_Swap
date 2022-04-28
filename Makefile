@@ -6,21 +6,23 @@
 #    By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 22:23:09 by gafreita          #+#    #+#              #
-#    Updated: 2022/04/26 19:51:36 by gafreita         ###   ########.fr        #
+#    Updated: 2022/04/28 22:15:22 by gafreita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	push_swap
 
-SRCS =	new_lists.c \
-		push_swap.c \
-		utils.c \
+SRCS =	big_sort.c \
+		new_lists.c \
 		print_stuff.c \
 		push.c \
-		swap.c \
-		rotate.c \
+		push_swap.c \
 		reverse_rotate.c \
-		small_sort.c
+		rotate.c \
+		small_sort.c \
+		swap.c \
+		utils_lists.c \
+		utils_sort.c 
 
 OBJS =	$(SRCS:%.c=%.o)
 

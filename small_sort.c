@@ -6,15 +6,17 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 21:38:04 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/28 20:28:56 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:10:15 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	sort_three(t_info *stacks, t_stack *head);
-static int	check_last_move(t_info *stacks);
 static void	sort_small(t_info *stacks);
+static int	pb_or_rra(t_info *stacks, int size);
+void		small_sort(t_info *stacks);
+int			check_last_move(t_info *stacks);
 
 void	small_sort(t_info *stacks)
 {
@@ -24,25 +26,8 @@ void	small_sort(t_info *stacks)
 		sort_small(stacks);
 }
 
-static void	sort_three(t_info *stacks, t_stack *head)
-{
-	static int	size;
-
-	size = stacks->all - 1;
-	if (check_sorted_asc(head))
-		return ;
-	else if (head->index == size)
-		ra(stacks);
-	else if (head->next->index == size - 2
-		|| head->index == size - 2)
-		sa(stacks);
-	else if (t_stack_last(head)->index == size - 2)
-		rra(stacks);
-	sort_three(stacks, head);
-}
-
 //function to check if its one movement away from ordering
-static int	check_last_move(t_info *stacks)
+int	check_last_move(t_info *stacks)
 {
 	t_stack	*head;
 	int		size;
@@ -69,6 +54,46 @@ static int	check_last_move(t_info *stacks)
 	return (1);
 }
 
+static void	sort_small(t_info *stacks)
+{
+	int	size;
+	int	i;
+
+	size = stacks->all;
+	if (stacks->size_a == size && check_last_move(stacks))
+		return ;
+	if (stacks->size_a > 3)
+	{
+		if (pb_or_rra(stacks, size) == 0)
+			ra(stacks);
+	}
+	if (stacks->size_a == 3)
+	{
+		sort_three(stacks, stacks->head_a);
+		i = -1;
+		while (++i < size - 3)
+			pa(stacks);
+	}
+	sort_small(stacks);
+}
+
+static void	sort_three(t_info *stacks, t_stack *head)
+{
+	static int	size;
+
+	size = stacks->all - 1;
+	if (check_sorted_asc(head))
+		return ;
+	else if (head->index == size)
+		ra(stacks);
+	else if (head->next->index == size - 2
+		|| head->index == size - 2)
+		sa(stacks);
+	else if (t_stack_last(head)->index == size - 2)
+		rra(stacks);
+	sort_three(stacks, head);
+}
+
 static int	pb_or_rra(t_info *stacks, int size)
 {
 	int	i;
@@ -92,27 +117,4 @@ static int	pb_or_rra(t_info *stacks, int size)
 		}
 	}
 	return (0);
-}
-
-static void	sort_small(t_info *stacks)
-{
-	int	size;
-	int	i;
-
-	size = stacks->all;
-	if (stacks->size_a == size && check_last_move(stacks))
-		return ;
-	if (stacks->size_a > 3)
-	{
-		if (pb_or_rra(stacks, size) == 0)
-			ra(stacks);
-	}
-	if (stacks->size_a == 3)
-	{
-		sort_three(stacks, stacks->head_a);
-		i = -1;
-		while (++i < size - 3)
-			pa(stacks);
-	}
-	sort_small(stacks);
 }

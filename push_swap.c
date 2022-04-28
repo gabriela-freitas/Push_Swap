@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/28 20:18:02 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 21:54:35 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,17 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		if (!deal_input(ac, av, &stacks) || check_sorted_asc(stacks.head_a))
+		{
+			free_info(&stacks);
 			return (0);
+		}
 	}
 	else
 		return (0);
-	if (stacks.all <= 10)
+	if (stacks.all <= 5)
 		small_sort(&stacks);
 	print_infos(&stacks);
-	free_stack(stacks.head_a);
-	free_stack(stacks.head_b);
+	free_info(&stacks);
 }
 
 //deals with ./push_swap "0 1 2" or ./push_swap 0 1 2

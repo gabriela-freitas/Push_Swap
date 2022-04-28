@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:57:58 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/22 15:39:57 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:11:01 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	free_info(t_info *info)
 	free_stack(info->head_b);
 }
 
-//FIXME: check if a stack is sorted >> ascending order
+//check if a stack is sorted >> ascending order
 int	check_sorted_asc(t_stack *stack)
 {
 	t_stack		*next;
