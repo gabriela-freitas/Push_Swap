@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 21:38:04 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/28 22:10:15 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:23:25 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,18 +103,18 @@ static int	pb_or_rra(t_info *stacks, int size)
 	i = -1;
 	while (++i < size - 3)
 	{
+		if (t_stack_last(stacks->head_a)->index == i)
+		{
+			rra(stacks);
+			check ++;
+		}
 		if (stacks->head_a->index == i)
 		{
 			pb(stacks);
 			check ++;
-			return (1);
-		}
-		else if (t_stack_last(stacks->head_a)->index == i)
-		{
-			rra(stacks);
-			check ++;
-			return (1);
 		}
 	}
+	if (check)
+		return (1);
 	return (0);
 }
