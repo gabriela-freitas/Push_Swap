@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/28 22:50:40 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:01:40 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static int	deal_input(int ac, char **av, t_info *stacks)
 {
 	char	**split;
 
+	//FIXME: pegar nos ags 1 a 1 e fazer split
 	if (ac == 2)
 	{
 		split = ft_split(av[1], ' ');

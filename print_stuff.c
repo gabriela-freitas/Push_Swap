@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 17:42:33 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/26 23:49:18 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:38:37 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,16 @@ void	print_infos(t_info *info)
 	}
 }
 
-void	print_node(t_stack *node)
+void	print_stack(t_stack *stack)
 {
 	t_stack	*aux;
 
-	aux = node;
+	aux = stack;
 	if (!aux)
-		ft_printf("There's no stack!\n");
-	else
-		ft_printf("value: %d >>> index: %d\n", aux->value, aux->index);
+		ft_printf("\tThere's no stack!\n\n");
+	while (aux)
+	{
+		ft_printf("\tvalue: %d\tindex: %d\n", aux->value, aux->index);
+		aux = aux->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/28 22:53:13 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:39:05 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void		small_sort(t_info *stacks);
 int			check_last_move(t_info *stacks);
 //print_stuff.c
 void		print_infos(t_info *info);
-void		print_node(t_stack *node);
+void		print_stack(t_stack *stack);
 //utils_sort.c
 int			check_sorted_asc(t_stack *stack);
 #endif
