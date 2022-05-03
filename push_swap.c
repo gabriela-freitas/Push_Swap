@@ -25,10 +25,7 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		if (!deal_input(ac, av, &stacks) || check_sorted_asc(stacks.head_a))
-		{
-			free_info(&stacks);
 			return (0);
-		}
 	}
 	else
 		return (0);
@@ -87,6 +84,7 @@ static int	check_input(t_info *stacks, char **av)
 		}
 		if (i == 1)
 			stacks->head_a = t_stack_new(ft_atoi(av[i]));
+	//FIXME: Deal with int_min and int_max (atol)
 		else
 			t_stack_add_back(stacks->head_a, t_stack_new(ft_atoi(av[i])));
 	}

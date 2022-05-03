@@ -12,12 +12,11 @@
 
 #include "push_swap.h"
 
-static void	sort_three(t_info *stacks, t_stack **head);
+void		sort_three(t_info *stacks, t_stack **head);
 static int	pb_or_rra(t_info *stacks, int size);
 void		small_sort(t_info *stacks);
-int			check_last_move(t_info *stacks);
 
-void		small_sort(t_info *stacks)
+void	small_sort(t_info *stacks)
 {
 	int	size;
 	int	i;
@@ -40,49 +39,16 @@ void		small_sort(t_info *stacks)
 	small_sort(stacks);
 }
 
-//function to check if its one movement away from ordering
-int	check_last_move(t_info *stacks)
-{
-	t_stack	*head;
-	int		size;
-
-	head = stacks->head_a;
-	size = stacks->size_a;
-	if (head->index == 1 && head->next->index == 0
-		&& check_sorted_asc(head->next->next))
-		sa(stacks);
-	else if (head->index == size - 1 && check_sorted_asc(head->next))
-		ra(stacks);
-	else if (t_stack_last(head)->index == 0)
-	{
-		reverse_rotate(&(stacks->head_a));
-		if (!check_sorted_asc(stacks->head_a))
-		{
-			rotate(&(stacks->head_a));
-			return (0);
-		}
-		ft_printf("rra\n");
-	}
-	if (!check_sorted_asc(stacks->head_a))
-		return (0);
-	return (1);
-}
-
-static void	sort_three(t_info *stacks, t_stack **head)
+void	sort_three(t_info *stacks, t_stack **head)
 {
 	static int	size;
 
 	size = stacks->all - 1;
 	if (check_sorted_asc(*head))
-	{
-		// print_infos(stacks);
-		// ft_printf("sorted: %d\n",check_sorted_asc(*head));
 		return ;
-	}
 	else if ((*head)->index == size)
 		ra(stacks);
-	else if ((*head)->next->index == size - 2
-		|| (*head)->index == size - 2)
+	else if ((*head)->next->index == size - 2 || (*head)->index == size - 2)
 		sa(stacks);
 	else if (t_stack_last(*head)->index == size - 2)
 		rra(stacks);

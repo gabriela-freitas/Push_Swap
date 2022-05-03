@@ -26,3 +26,31 @@ int	check_sorted_asc(t_stack *stack)
 	}
 	return (1);
 }
+
+//function to check if its one movement away from ordering
+int	check_last_move(t_info *stacks)
+{
+	t_stack	*head;
+	int		size;
+
+	head = stacks->head_a;
+	size = stacks->size_a;
+	if (head->index == 1 && head->next->index == 0
+		&& check_sorted_asc(head->next->next))
+		sa(stacks);
+	else if (head->index == size - 1 && check_sorted_asc(head->next))
+		ra(stacks);
+	else if (t_stack_last(head)->index == 0)
+	{
+		reverse_rotate(&(stacks->head_a));
+		if (!check_sorted_asc(stacks->head_a))
+		{
+			rotate(&(stacks->head_a));
+			return (0);
+		}
+		ft_printf("rra\n");
+	}
+	if (!check_sorted_asc(stacks->head_a))
+		return (0);
+	return (1);
+}
