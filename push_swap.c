@@ -37,32 +37,32 @@ int	main(int ac, char **av)
 	free_info(&stacks);
 }
 
-//deals with ./push_swap "0 1 2" or ./push_swap 0 1 2
 static int	deal_input(int ac, char **av, t_info *stacks)
 {
 	char	**split;
+	int		i;
 
-	//FIXME: pegar nos ags 1 a 1 e fazer split
-	if (ac == 2)
+	stacks->head_a = NULL;
+	if (ac > 1)
 	{
-		split = ft_split(av[1], ' ');
-		if (!check_input(stacks, split))
+		i = 0;
+		while (av[++i])
 		{
-			free_stack(stacks->head_a);
-			ft_printf("Error");
+			split = ft_split(av[i], ' ');
+			if (!check_input(stacks, split))
+			{
+				free_stack(stacks->head_a);
+				ft_printf("Error");
+				free_split(split);
+				return (0);
+			}
 			free_split(split);
-			return (0);
 		}
-		free_split(split);
+		stacks->size_a = t_stack_size(stacks->head_a);
+		stacks->all = stacks->size_a;
+		index_stack(stacks);
+		print_infos(stacks);
 	}
-	else if (!check_input(stacks, av))
-	{
-		free_stack(stacks->head_a);
-		ft_printf("Error");
-		return (0);
-	}
-	index_stack(stacks);
-	print_infos(stacks);
 	return (1);
 }
 
@@ -71,7 +71,7 @@ static int	check_input(t_info *stacks, char **av)
 	int		i;
 	int		j;
 
-	i = 0;
+	i = -1;
 	while (av[++i])
 	{
 		j = -1;
@@ -82,16 +82,15 @@ static int	check_input(t_info *stacks, char **av)
 			if (!ft_isdigit(av[i][j]))
 				return (0);
 		}
-		if (i == 1)
+		if (ft_atol(av[i]) > INT_MAX || ft_atol(av[i]) < INT_MIN)
+			return (0);
+		if (i == 0 && !(stacks->head_a))
 			stacks->head_a = t_stack_new(ft_atoi(av[i]));
-	//FIXME: Deal with int_min and int_max (atol)
 		else
 			t_stack_add_back(stacks->head_a, t_stack_new(ft_atoi(av[i])));
 	}
 	if (!check_duplicates(stacks->head_a))
 		return (0);
-	stacks->size_a = t_stack_size(stacks->head_a);
-	stacks->all = stacks->size_a;
 	return (1);
 }
 

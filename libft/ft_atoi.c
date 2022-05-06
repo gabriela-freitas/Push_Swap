@@ -47,3 +47,30 @@ int	ft_atoi(const char *str)
 	nb *= signal;
 	return (nb);
 }
+
+long int	ft_atol(const char *str)
+{
+	long int	nb;
+	int			i;
+	int			signal;
+
+	i = white_spaces(str);
+	signal = 1;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			signal *= -1;
+		i++;
+	}
+	nb = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			nb = nb * 10 + (str[i] - '0');
+		else
+			break ;
+		i++;
+	}
+	nb *= signal;
+	return (nb);
+}

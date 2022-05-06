@@ -29,6 +29,7 @@ int			int_count(long long int n, int len);
 int			ft_u_add(uintptr_t n, char *base);
 int			unsigned_count(unsigned long n, int len);
 int			ft_atoi(const char *str);
+long int	ft_atol(const char *str);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t count, size_t size);
 int			ft_isalnum(int c);
