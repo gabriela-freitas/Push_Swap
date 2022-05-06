@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 void		sort_three(t_info *stacks, t_stack **head);
-static int	pb_or_rra(t_info *stacks, int size);
+int			pb_or_rra(t_info *stacks, int size);
 void		small_sort(t_info *stacks);
 
 void	small_sort(t_info *stacks)
@@ -55,13 +55,13 @@ void	sort_three(t_info *stacks, t_stack **head)
 	sort_three(stacks, head);
 }
 
-static int	pb_or_rra(t_info *stacks, int size)
+int	pb_or_rra(t_info *stacks, int size)
 {
 	int	i;
 	int	check;
 
 	check = 0;
-	i = -1;
+	i = stacks->all - 6; //to generalize
 	while (++i < size - 3)
 	{
 		if (t_stack_last(stacks->head_a)->index == i)

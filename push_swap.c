@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 static int	check_input(t_info *stacks, char **av);
-static int	deal_input(int ac, char **av, t_info *stacks);
+static int	deal_input(char **av, t_info *stacks);
 static void	index_stack(t_info *stacks);
 
 int	main(int ac, char **av)
@@ -24,45 +24,42 @@ int	main(int ac, char **av)
 	stacks.head_b = NULL;
 	if (ac > 1)
 	{
-		if (!deal_input(ac, av, &stacks) || check_sorted_asc(stacks.head_a))
+		if (!deal_input(av, &stacks) || check_sorted_asc(stacks.head_a))
 			return (0);
 	}
 	else
 		return (0);
 	if (stacks.all <= 5)
 		small_sort(&stacks);
-	// else
-	// 	big_sort(&stacks);
-	print_infos(&stacks);
+	else
+		big_sort(&stacks);
+	//print_infos(&stacks);
 	free_info(&stacks);
 }
 
-static int	deal_input(int ac, char **av, t_info *stacks)
+static int	deal_input(char **av, t_info *stacks)
 {
 	char	**split;
 	int		i;
 
 	stacks->head_a = NULL;
-	if (ac > 1)
+	i = 0;
+	while (av[++i])
 	{
-		i = 0;
-		while (av[++i])
+		split = ft_split(av[i], ' ');
+		if (!check_input(stacks, split))
 		{
-			split = ft_split(av[i], ' ');
-			if (!check_input(stacks, split))
-			{
-				free_stack(stacks->head_a);
-				ft_printf("Error");
-				free_split(split);
-				return (0);
-			}
+			free_stack(stacks->head_a);
+			ft_printf("Error");
 			free_split(split);
+			return (0);
 		}
-		stacks->size_a = t_stack_size(stacks->head_a);
-		stacks->all = stacks->size_a;
-		index_stack(stacks);
-		print_infos(stacks);
+		free_split(split);
 	}
+	stacks->size_a = t_stack_size(stacks->head_a);
+	stacks->all = stacks->size_a;
+	index_stack(stacks);
+	//print_infos(stacks);
 	return (1);
 }
 

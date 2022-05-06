@@ -50,7 +50,5 @@ int	check_last_move(t_info *stacks)
 		}
 		ft_printf("rra\n");
 	}
-	if (!check_sorted_asc(stacks->head_a))
-		return (0);
-	return (1);
+	return (check_sorted_asc(stacks->head_a));
 }

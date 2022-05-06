@@ -22,7 +22,8 @@ SRCS =	big_sort.c \
 		small_sort.c \
 		swap.c \
 		utils_lists.c \
-		utils_sort.c 
+		utils_sort.c \
+		big_sort.c
 
 OBJS =	$(SRCS:%.c=%.o)
 
