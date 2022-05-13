@@ -19,23 +19,22 @@ void		small_sort(t_info *stacks);
 void	small_sort(t_info *stacks)
 {
 	int	size;
-	int	i;
 
 	size = stacks->all;
-	if (stacks->size_a == size && check_last_move(stacks))
+	if (size > 5)
+		size = 5;
+	if ((stacks->size_a == size || stacks->size_a == 5 )  && check_last_move(stacks))
 		return ;
 	if (stacks->size_a > 3)
 	{
-		pb_or_rra_or_ra(stacks, size)
-		if (!)
-			ra(stacks);
+		pb_or_rra_or_ra(stacks, stacks->all);
 	}
 	if (stacks->size_a == 3)
 	{
 		sort_three(stacks, &(stacks->head_a));
-		i = -1;
-		while (++i < size - 3)
+		while (stacks->size_a < size)
 			pa(stacks);
+		sa(stacks);
 	}
 	small_sort(stacks);
 }
@@ -62,7 +61,7 @@ int	pb_or_rra_or_ra(t_info *stacks, int size)
 	int	check;
 
 	check = 0;
-	i = stacks->all - 6; //to generalize
+	i = -1; //to generalize
 	while (++i < size - 3)
 	{
 		if (t_stack_last(stacks->head_a)->index == i)
@@ -70,7 +69,7 @@ int	pb_or_rra_or_ra(t_info *stacks, int size)
 		if (stacks->head_a->index == i)
 			check = pb(stacks);
 	}
-	if (check)
-		return (1);
+	if (!check)
+		ra(stacks);
 	return (0);
 }

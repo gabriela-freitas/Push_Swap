@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 		small_sort(&stacks);
 	else
 		big_sort(&stacks);
-	print_infos(&stacks);
+	//print_infos(&stacks);
 	free_info(&stacks);
 }
 

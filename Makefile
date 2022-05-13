@@ -27,7 +27,7 @@ SRCS =	big_sort.c \
 
 OBJS =	$(SRCS:%.c=%.o)
 
-CC = gcc -Wall -Wextra -Werror
+CC = gcc -Wall -Wextra -Werror -fsanitize=address
 
 INCLUDES = -Ilibft/
 
