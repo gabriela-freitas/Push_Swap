@@ -77,6 +77,7 @@ void		print_stack(t_stack *stack);
 //utils_sort.c
 int			check_last_move(t_info *stacks);
 int			check_sorted_asc(t_stack *stack);
+void		ra_or_rra(t_info *stacks, t_stack *head, int index);
 //big_sort.c
 void		big_sort(t_info *stacks);
 #endif

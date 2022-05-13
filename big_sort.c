@@ -44,9 +44,7 @@ static void	pb_ra_rra(t_info *stacks, int *index)
 		pb(stacks);
 		(*index) = (*index) + 1;
 	}
-	else if (t_stack_last(stacks->head_a)->index == *index)
-		rra(stacks);
 	else
-		ra(stacks);
+		ra_or_rra(stacks, stacks->head_a, *index);
 	return ;
 }

@@ -52,3 +52,23 @@ int	check_last_move(t_info *stacks)
 	}
 	return (check_sorted_asc(stacks->head_a));
 }
+
+void	ra_or_rra(t_info *stacks, t_stack *head, int index)
+{
+	t_stack	*aux;
+	int		i;
+
+	i = 0;
+	aux = head;
+	while (aux)
+	{
+		if (aux->index == index || i >= stacks->all / 2)
+			break ;
+		aux = aux->next;
+		i ++;
+	}
+	if (i < stacks->all / 2)
+		ra(stacks);
+	else
+		rra(stacks);
+}
