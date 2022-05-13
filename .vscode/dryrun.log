@@ -1,6 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/gafreita/Desktop/Push_Swap'
- 
-make -C libft/
-make: Leaving directory `/Users/gafreita/Desktop/Push_Swap'
- 
