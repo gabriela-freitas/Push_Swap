@@ -70,7 +70,7 @@ int			rrr(t_info *stacks);
 //small_sort.c
 void		small_sort(t_info *stacks);
 void		sort_three(t_info *stacks, t_stack **head);
-int			pb_or_rra(t_info *stacks, int size);
+int			pb_or_rra_or_ra(t_info *stacks, int size);
 //print_stuff.c
 void		print_infos(t_info *info);
 void		print_stack(t_stack *stack);

@@ -1,0 +1,20 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/gafreita/Desktop/Push_Swap'
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c big_sort.c -o big_sort.o
+ 
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c new_lists.c -o new_lists.o
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c print_stuff.c -o print_stuff.o
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c push.c -o push.o
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c push_swap.c -o push_swap.o
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c reverse_rotate.c -o reverse_rotate.o
+ 
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c rotate.c -o rotate.o
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c small_sort.c -o small_sort.o
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c swap.c -o swap.o
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c utils_lists.c -o utils_lists.o
+gcc -Wall -Wextra -Werror -g -Ilibft/ -c utils_sort.c -o utils_sort.o
+make -C libft/
+gcc -Wall -Wextra -Werror big_sort.o new_lists.o print_stuff.o push.o push_swap.o reverse_rotate.o rotate.o small_sort.o swap.o utils_lists.o utils_sort.o -Llibft -lft -o push_swap
+echo "\033[0;32mpush_swap OK\033[0m"
+make: Leaving directory `/Users/gafreita/Desktop/Push_Swap'
+ 
