@@ -39,8 +39,6 @@ int	unsigned_count(unsigned long n, int len)
 	if (n == 0)
 		return (1);
 	count = 0;
-	if (n < 0)
-		n *= -1;
 	while (n > 0)
 	{
 		n /= len;
@@ -56,8 +54,6 @@ static int	add_count(uintptr_t n, int len)
 	if (n == 0)
 		return (1);
 	count = 0;
-	if (n < 0)
-		n *= -1;
 	while (n > 0)
 	{
 		n /= len;
@@ -68,11 +64,6 @@ static int	add_count(uintptr_t n, int len)
 
 int	ft_u_add(uintptr_t n, char *base)
 {
-	uintptr_t	temp;
-
-	if (n < 0)
-		ft_u_add(n, base);
-	temp = n;
 	if (n >= (uintptr_t)ft_strlen(base))
 	{
 		ft_u_add(n / ft_strlen(base), base);
