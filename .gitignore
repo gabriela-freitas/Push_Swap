@@ -6,3 +6,4 @@
 visualizer/
 python*
 teste.sh
+*.log
