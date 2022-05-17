@@ -3,3 +3,6 @@
 *.dSY*/
 *.a
 .vscode/*
+visualizer/
+python*
+teste.sh

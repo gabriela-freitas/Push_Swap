@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 21:38:04 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/03 18:55:53 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/16 16:21:04 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	small_sort(t_info *stacks)
 	size = stacks->all;
 	if (size > 5)
 		size = 5;
-	if ((stacks->size_a == size || stacks->size_a == 5 )  && check_last_move(stacks))
+	if ((stacks->size_a == size || stacks->size_a == 5)
+		&& check_last_move(stacks))
 		return ;
 	if (stacks->size_a > 3)
 	{
