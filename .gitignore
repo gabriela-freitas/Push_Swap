@@ -6,4 +6,4 @@
 visualizer/
 python*
 teste.sh
-*.log
+push_swap_run_args.log
