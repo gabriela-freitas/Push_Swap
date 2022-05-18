@@ -6,71 +6,56 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 21:38:04 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/16 16:21:04 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:15:47 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		sort_three(t_info *stacks, t_stack **head);
-int			pb_or_rra_or_ra(t_info *stacks, int size);
-void		small_sort(t_info *stacks);
+void	sort_three(t_stack **head);
+void	small_sort(t_stack **head);
 
-void	small_sort(t_info *stacks)
+//FIXME: SOMETHING IS OFF
+// o que entra aqui tem index 0 1 2 3 4
+void	small_sort(t_stack **head)
 {
-	int	size;
+	int		size;
 
-	size = stacks->all;
-	if (size > 5)
-		size = 5;
-	if ((stacks->size_a == size || stacks->size_a == 5)
-		&& check_last_move(stacks))
+	size = t_stack_size(*head);
+	if ((size == stacks()->all || size == stacks()->chunk_size)
+		&& check_last_move(stacks()->head_a))
 		return ;
-	if (stacks->size_a > 3)
+	if (size > 3)
 	{
-		pb_or_rra_or_ra(stacks, stacks->all);
+		if ((*head)->index > 2 || (*head)->index <= stacks()->all - 1)
+			px(head_a_or_b(*head));
+		else
+			rx_or_rrx_range(*head, 3, stacks()->all - 1);
 	}
-	if (stacks->size_a == 3)
+	if (size == 3)
 	{
-		sort_three(stacks, &(stacks->head_a));
-		while (stacks->size_a < size)
-			pa(stacks);
-		sa(stacks);
+		sort_three(head);
+		//FIXME: this is weird
+		while (stacks()->size_b)
+			pa(); //going back
+		//sa(stacks());
 	}
-	small_sort(stacks);
+	small_sort(head);
 }
 
-void	sort_three(t_info *stacks, t_stack **head)
+void	sort_three(t_stack **head)
 {
 	static int	size;
 
-	size = stacks->all - 1;
+	size = stacks()->all - 1;
 	if (check_sorted_asc(*head))
 		return ;
 	else if ((*head)->index == size)
-		ra(stacks);
+		rx(head_a_or_b(*head));
 	else if ((*head)->next->index == size - 2 || (*head)->index == size - 2)
-		sa(stacks);
+		sx(head_a_or_b(*head));
 	else if (t_stack_last(*head)->index == size - 2)
-		rra(stacks);
-	sort_three(stacks, head);
+		rrx(head_a_or_b(*head));
+	sort_three(head);
 }
 
-int	pb_or_rra_or_ra(t_info *stacks, int size)
-{
-	int	i;
-	int	check;
-
-	check = 0;
-	i = -1; //to generalize
-	while (++i < size - 3)
-	{
-		if (t_stack_last(stacks->head_a)->index == i)
-			check = rra(stacks);
-		if (stacks->head_a->index == i)
-			check = pb(stacks);
-	}
-	if (!check)
-		ra(stacks);
-	return (0);
-}

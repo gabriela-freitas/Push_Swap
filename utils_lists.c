@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:57:58 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/28 22:49:29 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/18 21:14:24 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	free_stack(t_stack *head)
 	}
 }
 
-void	free_info(t_info *info)
+void	free_stacks(void)
 {
-	free_stack(info->head_a);
-	free_stack(info->head_b);
+	free_stack(stacks()->head_a);
+	free_stack(stacks()->head_b);
 }
 
 void	free_split(char **split)
@@ -40,25 +40,7 @@ void	free_split(char **split)
 		free(split[i]);
 }
 
-//FIXME: check if a stack is sorted >> descending order
-
-// int	check_sorted_descending(t_stack *lst)
-// {
-// 	t_stack		*next;
-// 	t_stack		*temp;
-
-// 	temp = lst;
-// 	while (temp && temp->next)
-// 	{
-// 		next = temp->next;
-// 		if (temp->value < next->value)
-// 			return (0);
-// 		temp = next;
-// 	}
-// 	return (1);
-// }
-
-void	selection_sort_array(int *array, int size)
+int	*selection_sort_array(int *array, int size)
 {
 	int	aux;
 	int	i;
@@ -78,6 +60,7 @@ void	selection_sort_array(int *array, int size)
 			}
 		}
 	}
+	return (array);
 }
 
 //function to check for duplicates
