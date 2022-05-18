@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:41:22 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/03 18:56:11 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/18 20:08:31 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,26 @@ void	ra_or_rra(t_info *stacks, t_stack *head, int index)
 	while (aux)
 	{
 		if (aux->index == index || i >= stacks->all / 2)
+			break ;
+		aux = aux->next;
+		i ++;
+	}
+	if (i < stacks->all / 2)
+		ra(stacks);
+	else
+		rra(stacks);
+}
+
+void	ra_or_rra_range(t_info *stacks, t_stack *head, int begin, int end)
+{
+	t_stack	*aux;
+	int		i;
+
+	i = 0;
+	aux = head;
+	while (aux)
+	{
+		if (aux->index >= begin || aux->index < end || i >= stacks->all / 2)
 			break ;
 		aux = aux->next;
 		i ++;

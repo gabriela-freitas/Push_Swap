@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:23:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/18 20:06:26 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/18 20:21:36 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 static void	sort_b(t_info *stacks);
 static void	pass_five_to_b(t_info *stacks);
+static void	sort_small_b(t_info *stacks);
 
 void	new_big_sort(t_info *stacks)
 {
@@ -27,9 +28,8 @@ void	new_big_sort(t_info *stacks)
 		return ;
 	if (stacks->size_a > stacks->all / 2)
 	{
-		pass_five_to_b(stacks); //pass x numbers to b, test with different sizes of stacks
+		pass_five_to_b(stacks);
 		sort_small_b(stacks);
-		//update the sort small to work with anykind of stacks, searching for the bigger numbers, going back to a and then sorting 3 numbers.
 	}
 	if (end + stacks->chunk_size == stacks->all)
 		end = stacks->all;
@@ -39,6 +39,7 @@ void	new_big_sort(t_info *stacks)
 	new_big_sort(stacks);
 }
 
+//pass x numbers to b, test with different sizes of stacks
 static void	pass_five_to_b(t_info *stacks, int begin, int end)
 {
 	static int	check = begin;
@@ -47,13 +48,43 @@ static void	pass_five_to_b(t_info *stacks, int begin, int end)
 		return ;
 	if (stacks->head_a->index < end || stacks->head_a->index >= begin)
 		check += pb(stacks) / 3;
-	else if (stacks->head_a->next->index < end
-		|| stacks->head_a->next->index >= begin)
-		sa(stacks);
-	else if (t_stack_last(stacks->head_a)->index < end
-		|| t_stack_last(stacks->head_a)->index >= begin)
-		rra(stacks);
-	else
-		ra(stacks);
+	ra_or_rra_range(stacks, stacks->head_a, begin, end);
 	pass_to_b(stacks, begin, end);
+}
+
+//update the sort small to work with anykind of stacks,
+//searching for the bigger numbers, going back to a and then sorting 3 numbers.
+static void	sort_small_b(t_info *stacks)
+{
+	if (check_last_move(stacks))
+		return ;
+
+}
+
+static void	re_index_B(t_info *stacks)
+{
+	static int	original[stacks->size_b];
+	static int	check = 0;
+	t_stack		aux;
+	int 		i;
+	int			*arr;
+
+	if (!check)
+	{
+		aux = stacks->head_b;
+		i = -1;
+		while (aux && ++i >= 0)
+		{
+			original[i] = aux->index;
+			aux = aux->next;
+		}
+		arr = malloc(sizeof(int) * stacks->size_b);
+		aux = stacks->head_b;
+		i = -1;
+		while (aux && ++i >= 0)
+		{
+			aux->index = arr[i];
+			aux = aux->next;
+		}
+	}
 }

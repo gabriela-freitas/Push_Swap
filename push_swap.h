@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/18 20:05:49 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/18 20:08:46 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void		print_stack(t_stack *stack);
 int			check_last_move(t_info *stacks);
 int			check_sorted_asc(t_stack *stack);
 void		ra_or_rra(t_info *stacks, t_stack *head, int index);
+void		ra_or_rra_range(t_info *stacks, t_stack *head, int begin, int end);
 //big_sort.c
 void		big_sort(t_info *stacks);
 #endif
