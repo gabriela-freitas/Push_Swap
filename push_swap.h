@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/03 18:39:05 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/18 20:05:49 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_info
 	t_stack	*head_b;
 	int		size_b;
 	int		all;
+	int		chunk_size;
 }	t_info;
 
 //new_lists.c

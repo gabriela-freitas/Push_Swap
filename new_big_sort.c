@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:23:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/17 21:03:10 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/18 20:06:26 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	pass_five_to_b(t_info *stacks);
 void	new_big_sort(t_info *stacks)
 {
 	static int	begin = 0;
-	static int	end = 5;
+	static int	end = stacks->chunk_size;
 
 	if (stacks->size_a == stacks->all && check_last_move(stacks))
 		return ;
@@ -31,11 +31,12 @@ void	new_big_sort(t_info *stacks)
 		sort_small_b(stacks);
 		//update the sort small to work with anykind of stacks, searching for the bigger numbers, going back to a and then sorting 3 numbers.
 	}
-	if (end + 5 == stacks->all)
+	if (end + stacks->chunk_size == stacks->all)
 		end = stacks->all;
 	else
-		end += 5;
-	new_big_sort(stacks, begin + 5, end);
+		end += stacks->chunk_size;
+	begin += stacks->chunk_size;
+	new_big_sort(stacks);
 }
 
 static void	pass_five_to_b(t_info *stacks, int begin, int end)
