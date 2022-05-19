@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:23:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 21:42:14 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:44:22 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	new_big_sort(void)
 	int	end;
 	int	check;
 
-	begin = 0;
-	end = stacks()->chunk_size;
+	begin = stacks()->all - stacks()->chunk_size;
+	end = stacks()->all;
 	while (!(stacks()->size_a == stacks()->all && check_last_move()))
 	{
-		ft_printf("begin = %d end = %d\n", begin, end);
+		//ft_printf("begin = %d end = %d\n", begin, end);
 		check = begin;
 		while (check < end)
 		{
@@ -42,12 +42,12 @@ void	new_big_sort(void)
 		}
 		re_index_b();
 		sort_small_b();
-		if ((end + stacks()->chunk_size) > stacks()->all)
-			end = stacks()->all;
+		if ((end - stacks()->chunk_size) < 0)
+			end = 0;
 		else
-			end += stacks()->chunk_size;
-		begin += stacks()->chunk_size;
-		if (begin > stacks()->all)
+			end -= stacks()->chunk_size;
+		begin -= stacks()->chunk_size;
+		if (begin < 0)
 			break ;
 		//print_infos();
 	}

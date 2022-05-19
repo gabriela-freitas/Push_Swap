@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 21:27:00 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:45:24 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		print_infos();
+		//print_infos();
 		stacks()->chunk_size = stacks()->all / 2;
 		new_big_sort();
-		print_infos();
+		//print_infos();
 	}
 	// else
 	// 	big_sort();
