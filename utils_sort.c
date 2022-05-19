@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:41:22 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 15:30:07 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:28:18 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,62 +27,22 @@ int	check_sorted_asc(t_stack *stack)
 	return (1);
 }
 
-char	head_a_or_b(t_stack *head)
+//check if a stack is sorted >> descending order
+int	check_sorted_desc(t_stack *stack)
 {
-	char	id;
+	t_stack		*temp;
 
-	if (head == stacks()->head_a)
-		id = 'a';
-	else
-		id = 'b';
-	return (id);
-}
-
-//function to check if its one movement away from ordering
-int	check_last_move(t_stack *head)
-{
-	int		size;
-
-	size = t_stack_size(head);
-	if (head->index == 1 && head->next->index == 0
-		&& check_sorted_asc(head->next->next))
-		sx(head_a_or_b(head));
-	else if (head->index == size - 1 && check_sorted_asc(head->next))
-		rx(head_a_or_b(head));
-	else if (t_stack_last(head)->index == 0)
+	temp = stack;
+	while (temp && temp->next)
 	{
-		reverse_rotate(&(head));
-		if (!check_sorted_asc(head))
-		{
-			rotate(&(head));
+		if (temp->value < temp->next->value)
 			return (0);
-		}
-		ft_printf("rr%c\n", head_a_or_b(head));
+		temp = temp->next;
 	}
-	return (check_sorted_asc(head));
+	return (1);
 }
 
-//FIXME: something with id
-void	rx_or_rrx_range(t_stack *head, int begin, int end)
-{
-	t_stack	*aux;
-	int		i;
-
-	i = 0;
-	aux = head;
-	while (aux)
-	{
-		if (aux->index >= begin || aux->index < end || i >= stacks()->all / 2)
-			break ;
-		aux = aux->next;
-		i ++;
-	}
-	if (i < stacks()->all / 2)
-		rx(head_a_or_b(head));
-	else
-		rrx(head_a_or_b(head));
-}
-
+//to sort small on stack a
 void	ra_or_rra(int begin, int end)
 {
 	t_stack	*aux;
@@ -124,4 +84,28 @@ int	*stack_to_array(t_stack *head)
 		aux = aux->next;
 	}
 	return (arr);
+}
+
+int	check_last_move(void)
+{
+	int		size;
+
+	size = stacks()->size_a;
+	if (stacks()->head_a->index == 1 && stacks()->head_a->next->index == 0
+		&& check_sorted_asc(stacks()->head_a->next->next))
+		sa();
+	else if (stacks()->head_a->index == size - 1
+		&& check_sorted_asc(stacks()->head_a->next))
+		ra();
+	else if (t_stack_last(stacks()->head_a)->index == 0)
+	{
+		reverse_rotate(&(stacks()->head_a));
+		if (!check_sorted_asc(stacks()->head_a))
+		{
+			rotate(&(stacks()->head_a));
+			return (0);
+		}
+		ft_printf("rra\n");
+	}
+	return (check_sorted_asc(stacks()->head_a));
 }

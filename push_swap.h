@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 15:26:21 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:25:52 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
+	int				aux;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -80,13 +81,20 @@ void		print_infos(void);
 void		print_stack(t_stack *stack);
 
 //utils_sort.c
-int			check_last_move(t_stack *head);
+int			check_last_move(void);
 int			check_sorted_asc(t_stack *stack);
+int			check_sorted_desc(t_stack *stack);
 void		rx_or_rrx_range(t_stack *head, int begin, int end);
 int			*stack_to_array(t_stack *head);
+
+//x_functions.c
 char		head_a_or_b(t_stack *head);
 void		ra_or_rra(int begin, int end);
 
 //big_sort.c
 void		big_sort(t_info *stacks);
+
+//new_big_sort.c
+void		sort_three_b(t_stack **head);
+void		new_big_sort(void);
 #endif

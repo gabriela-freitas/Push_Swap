@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 15:32:30 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:27:00 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	index_stack(t_stack *head);
 
 t_info	*stacks(void)
 {
-	static t_info stacks;
+	static t_info	stacks;
 
 	return (&stacks);
 }
@@ -39,6 +39,13 @@ int	main(int ac, char **av)
 	{
 		stacks()->chunk_size = stacks()->all;
 		small_sort();
+	}
+	else
+	{
+		print_infos();
+		stacks()->chunk_size = stacks()->all / 2;
+		new_big_sort();
+		print_infos();
 	}
 	// else
 	// 	big_sort();
