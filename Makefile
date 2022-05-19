@@ -6,7 +6,7 @@
 #    By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 22:23:09 by gafreita          #+#    #+#              #
-#    Updated: 2022/05/18 22:58:04 by gafreita         ###   ########.fr        #
+#    Updated: 2022/05/19 14:27:15 by gafreita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,20 +26,20 @@ NAME =	push_swap
 
 SRCS =  new_lists.c \
 		print_stuff.c \
-		push.c \
+		moves/push.c \
 		push_swap.c \
-		reverse_rotate.c \
-		rotate.c \
-		swap.c \
+		moves/reverse_rotate.c \
+		moves/rotate.c \
+		moves/swap.c \
 		utils_lists.c \
 		utils_sort.c \
-		small_sort.c 
+		small_sort.c
 
 OBJS =	$(SRCS:%.c=%.o)
 
 CC = gcc -Wall -Wextra -Werror -fsanitize=address
 
-INCLUDES = -Ilibft/
+INCLUDES = -Ilibft/ -I../Push_Swap
 
 COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m

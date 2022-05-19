@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:41:22 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/18 23:00:18 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:30:07 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	check_last_move(t_stack *head)
 	return (check_sorted_asc(head));
 }
 
+//FIXME: something with id
 void	rx_or_rrx_range(t_stack *head, int begin, int end)
 {
 	t_stack	*aux;
@@ -80,6 +81,27 @@ void	rx_or_rrx_range(t_stack *head, int begin, int end)
 		rx(head_a_or_b(head));
 	else
 		rrx(head_a_or_b(head));
+}
+
+void	ra_or_rra(int begin, int end)
+{
+	t_stack	*aux;
+	int		i;
+
+	i = 0;
+	aux = stacks()->head_a;
+	while (aux)
+	{
+		if ((aux->index >= begin && aux->index < end)
+			|| i == (stacks()->size_a / 2))
+			break ;
+		aux = aux->next;
+		i ++;
+	}
+	if (i < (stacks()->size_a / 2))
+		ra();
+	else
+		rra();
 }
 
 int	*stack_to_array(t_stack *head)

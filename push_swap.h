@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/18 23:12:58 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:26:21 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ int			rrr(void);
 int			rrx(char id);
 //small_sort.c
 void		sort_three(t_stack **head);
-void		small_sort(t_stack **head);
+int			pb_or_rra_or_ra(int size);
+void		small_sort(void);
 //print_stuff.c
 void		print_infos(void);
 void		print_stack(t_stack *stack);
@@ -84,6 +85,7 @@ int			check_sorted_asc(t_stack *stack);
 void		rx_or_rrx_range(t_stack *head, int begin, int end);
 int			*stack_to_array(t_stack *head);
 char		head_a_or_b(t_stack *head);
+void		ra_or_rra(int begin, int end);
 
 //big_sort.c
 void		big_sort(t_info *stacks);
