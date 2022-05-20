@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:23:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/20 22:33:11 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/20 23:04:38 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,17 @@ void	new_big_sort(void)
 		{
 			if (stacks()->head_a->index < end
 				&& stacks()->head_a->index >= begin)
+			{
 				check += pb();
+				if (stacks()->size_b > 1)
+				{
+					if ((stacks()->head_b->index < begin + 3))
+						rb();
+					if (stacks()->head_b->index < stacks()->head_b->next->index)
+						sb();
+				}
+
+			}
 			else
 				ra();
 				//ra_or_rra(begin, end);
