@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:23:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 21:44:22 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/20 22:33:11 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ void	new_big_sort(void)
 
 	begin = stacks()->all - stacks()->chunk_size;
 	end = stacks()->all;
-	while (!(stacks()->size_a == stacks()->all && check_last_move()))
+	while (end >= 0)
 	{
-		//ft_printf("begin = %d end = %d\n", begin, end);
 		check = begin;
 		while (check < end)
 		{
@@ -38,19 +37,20 @@ void	new_big_sort(void)
 				&& stacks()->head_a->index >= begin)
 				check += pb();
 			else
-				ra_or_rra(begin, end);
+				ra();
+				//ra_or_rra(begin, end);
 		}
 		re_index_b();
 		sort_small_b();
 		if ((end - stacks()->chunk_size) < 0)
-			end = 0;
-		else
-			end -= stacks()->chunk_size;
+			break ;
+		end -= stacks()->chunk_size;
 		begin -= stacks()->chunk_size;
 		if (begin < 0)
-			break ;
-		//print_infos();
+			begin = 0;
 	}
+	// while (!check_sorted_asc(stacks()->head_a))
+	// 	rra();
 }
 
 //re-index b using the aux variable instead of the index
@@ -88,7 +88,7 @@ static void	sort_small_b(void)
 	{
 		if (stacks()->head_b->aux == i)
 		{
-			pb();
+			pa();
 			i --;
 		}
 		else
@@ -119,10 +119,11 @@ static void	rb_or_rrb(int index)
 	if (i < (stacks()->size_a / 2))
 		rb();
 	else
+	{
+		//print_infos();
 		rrb();
+	}
 }
-
-
 
 void	sort_three_b(t_stack **head)
 {

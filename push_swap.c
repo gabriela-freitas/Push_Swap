@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 21:45:24 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/20 22:40:11 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	check_input(char **av);
 static int	deal_input(char **av);
 static void	index_stack(t_stack *head);
+static void	choose_chunk_size(void);
 
 t_info	*stacks(void)
 {
@@ -43,7 +44,7 @@ int	main(int ac, char **av)
 	else
 	{
 		//print_infos();
-		stacks()->chunk_size = stacks()->all / 2;
+		choose_chunk_size();
 		new_big_sort();
 		//print_infos();
 	}
@@ -51,6 +52,16 @@ int	main(int ac, char **av)
 	// 	big_sort();
 	//print_infos();
 	free_stacks();
+}
+
+static void	choose_chunk_size(void)
+{
+	if (stacks()->all <= 50)
+		stacks()->chunk_size = stacks()->all / 2;
+	else if (stacks()->all <= 100)
+		stacks()->chunk_size = stacks()->all / 5;
+	else
+		stacks()->chunk_size = stacks()->all / 10;
 }
 
 static int	deal_input(char **av)
