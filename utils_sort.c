@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:41:22 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/21 23:21:19 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:23:10 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	*stack_to_array(t_stack *head)
 }
 
 /*check if the stack is one movement away for being ordered
-returns whether is ordened or not*/
+returns whether is ordened or*/
 int	check_last_move(void)
 {
 	int		size;
