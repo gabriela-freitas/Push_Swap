@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 16:43:30 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 17:42:24 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:06:26 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	rx_or_rrx_range(t_stack *head, int begin, int end)
 	aux = head;
 	while (aux)
 	{
-		if (aux->index >= begin || aux->index < end || i >= stacks()->all / 2)
+		if ((aux->index >= begin && aux->index < end)
+			|| i >= stacks()->all / 2)
 			break ;
 		aux = aux->next;
 		i ++;

@@ -6,13 +6,19 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:25:25 by gafreita          #+#    #+#             */
-/*   Updated: 2022/04/28 22:06:24 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:09:28 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Returns the last node of the list.
+t_stack	*t_stack_last(t_stack *lst);
+t_stack	*t_stack_new(int value);
+int		t_stack_size(t_stack *lst);
+void	t_stack_add_back(t_stack *lst, t_stack *new);
+void	t_stack_add_front(t_stack **lst, t_stack *new);
+
+/*Returns the last node of the list.*/
 t_stack	*t_stack_last(t_stack *lst)
 {
 	t_stack	*aux;
@@ -25,10 +31,10 @@ t_stack	*t_stack_last(t_stack *lst)
 	return (aux);
 }
 
-//Allocates (with malloc(3)) and returns a new node.
-//The member variable ’content’ is initialized
-//with the value of the parameter ’content’.
-//The variable’next’ is initialized to NULL.
+/*Allocates (with malloc(3)) and returns a new node.
+The member variable ’content’ is initialized
+with the value of the parameter ’content’.
+The variable’next’ is initialized to NULL.*/
 t_stack	*t_stack_new(int value)
 {
 	t_stack	*node;
@@ -41,7 +47,7 @@ t_stack	*t_stack_new(int value)
 	return (node);
 }
 
-//return the size of the list
+/*return the size of the list*/
 int	t_stack_size(t_stack *lst)
 {
 	int			size;
@@ -57,7 +63,7 @@ int	t_stack_size(t_stack *lst)
 	return (size);
 }
 
-//Adds the node ’new’ at the end of the list.
+/*Adds the node ’new’ at the end of the list.*/
 void	t_stack_add_back(t_stack *lst, t_stack *new)
 {
 	if (!lst)
@@ -66,7 +72,7 @@ void	t_stack_add_back(t_stack *lst, t_stack *new)
 		t_stack_last(lst)->next = new;
 }
 
-//Adds the node ’new’ at the beginning of the list
+/*Adds the node ’new’ at the beginning of the list*/
 void	t_stack_add_front(t_stack **lst, t_stack *new)
 {
 	if (!new)

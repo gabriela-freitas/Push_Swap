@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/21 15:53:22 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:17:03 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,20 @@ typedef struct s_info
 	int		chunk_size;
 }	t_info;
 
-t_info		*stacks(void);
 //new_lists.c
 t_stack		*t_stack_last(t_stack *lst);
 t_stack		*t_stack_new(int value);
 int			t_stack_size(t_stack *lst);
 void		t_stack_add_back(t_stack *lst, t_stack *new);
 void		t_stack_add_front(t_stack **lst, t_stack *new);
+
 // utils_lists.c
+t_info		*stacks(void);
 int			*selection_sort_array(int *array, int size);
 int			check_duplicates(t_stack *lst);
 void		free_stack(t_stack *head);
-void		free_stacks(void);
 void		free_split(char **split);
+
 //push.c
 int			pa(void);
 int			pb(void);

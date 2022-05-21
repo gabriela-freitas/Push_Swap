@@ -6,11 +6,19 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:57:58 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/18 21:14:24 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:16:19 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*returns the struct info that will be used throughout the program*/
+t_info	*stacks(void)
+{
+	static t_info	stacks;
+
+	return (&stacks);
+}
 
 //function to free a stack's memory
 void	free_stack(t_stack *head)
@@ -25,12 +33,8 @@ void	free_stack(t_stack *head)
 	}
 }
 
-void	free_stacks(void)
-{
-	free_stack(stacks()->head_a);
-	free_stack(stacks()->head_b);
-}
-
+//FIXME:add to libft
+/*free the memory allocated for ft_split*/
 void	free_split(char **split)
 {
 	int		i;
@@ -40,6 +44,8 @@ void	free_split(char **split)
 		free(split[i]);
 }
 
+/*ordenates the array using the selection sort algorithm and returns
+the sorted array*/
 int	*selection_sort_array(int *array, int size)
 {
 	int	aux;
