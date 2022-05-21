@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:47:25 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/21 22:58:28 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/22 00:17:09 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,9 @@ static void	push_to_b(void)
 				&& stacks()->head_a->index >= begin)
 			{
 				check += pb();
-				if (stacks()->size_b > 1)
-				{
-					if (stacks()->head_b->index < stacks()->head_b->next->index)
-						sb();
-				}
 			}
 			else
+				//calculate_ra_rra(begin, end);
 				ra_or_rra(begin, end);
 		}
 		//ft_printf("begin = %d end = %d\n", begin, end);
@@ -49,7 +45,7 @@ static void	push_to_b(void)
 	}
 }
 
-static void get_back(void)
+static void	get_back(void)
 {
 	int	begin;
 	int	end;
@@ -73,7 +69,8 @@ static void get_back(void)
 						sa();
 				}
 			}
-			// else if (stacks()->size_b > 1)
+			/*FIXME: n entendi pq da crash*/
+			// if (stacks()->size_b > 1)
 			// {
 			// 	if (stacks()->head_b->next->index < end
 			// 		&& stacks()->head_b->next->index >= begin)

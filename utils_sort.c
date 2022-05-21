@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:41:22 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/21 23:23:10 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:59:16 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ void	ra_or_rra(int begin, int end)
 	aux = stacks()->head_a;
 	while (aux)
 	{
-		if ((aux->index >= begin && aux->index < end)
-			|| i == (stacks()->size_a / 2))
+		if (aux->index >= begin && aux->index < end)
 			break ;
 		aux = aux->next;
 		i ++;

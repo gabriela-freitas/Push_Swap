@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/21 23:17:03 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:51:37 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_info
 	int		all;
 	int		chunk_size;
 }	t_info;
+
+void		calculate_ra_rra(int begin, int end);
 
 //new_lists.c
 t_stack		*t_stack_last(t_stack *lst);
