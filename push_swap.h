@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 21:25:52 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 15:53:22 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char		head_a_or_b(t_stack *head);
 void		ra_or_rra(int begin, int end);
 
 //big_sort.c
-void		big_sort(t_info *stacks);
+void		big_sort(void);
 
 //new_big_sort.c
 void		sort_three_b(t_stack **head);

@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 20:51:18 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/20 22:40:11 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:01:34 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,33 +35,24 @@ int	main(int ac, char **av)
 	}
 	else
 		return (0);
-	//print_infos();
+	choose_chunk_size();
 	if (stacks()->all <= 5)
-	{
-		stacks()->chunk_size = stacks()->all;
 		small_sort();
-	}
 	else
-	{
-		//print_infos();
-		choose_chunk_size();
-		new_big_sort();
-		//print_infos();
-	}
-	// else
-	// 	big_sort();
-	//print_infos();
+		big_sort();
 	free_stacks();
 }
 
 static void	choose_chunk_size(void)
 {
-	if (stacks()->all <= 50)
+	if (stacks()->all <= 5)
+		stacks()->chunk_size = stacks()->all;
+	else if (stacks()->all <= 50)
 		stacks()->chunk_size = stacks()->all / 2;
 	else if (stacks()->all <= 100)
 		stacks()->chunk_size = stacks()->all / 5;
 	else
-		stacks()->chunk_size = stacks()->all / 10;
+		stacks()->chunk_size = stacks()->all / 15;
 }
 
 static int	deal_input(char **av)

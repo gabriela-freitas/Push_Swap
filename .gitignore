@@ -3,7 +3,7 @@
 *.dSY*/
 *.a
 .vscode/*
-visualizer/
+visualizer/*
 python*
 teste.sh
 push_swap_run_args.log

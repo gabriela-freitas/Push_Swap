@@ -6,7 +6,7 @@
 #    By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 22:23:09 by gafreita          #+#    #+#              #
-#    Updated: 2022/05/19 16:52:38 by gafreita         ###   ########.fr        #
+#    Updated: 2022/05/21 15:53:35 by gafreita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ NAME =	push_swap
 
 SRCS =  new_lists.c \
 		new_big_sort.c \
+		big_sort.c \
 		print_stuff.c \
 		moves/push.c \
 		push_swap.c \

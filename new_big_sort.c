@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:23:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/20 23:04:38 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/21 22:59:05 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,18 @@ void	new_big_sort(void)
 				{
 					if ((stacks()->head_b->index < begin + 3))
 						rb();
-					if (stacks()->head_b->index < stacks()->head_b->next->index)
+					if (stacks()->head_b->index < 1)
 						sb();
 				}
-
 			}
 			else
-				ra();
+				rra();
 				//ra_or_rra(begin, end);
 		}
+		//print_infos();
 		re_index_b();
 		sort_small_b();
+		//ft_printf("begin = %d end = %d\n", begin, end);
 		if ((end - stacks()->chunk_size) < 0)
 			break ;
 		end -= stacks()->chunk_size;
@@ -105,6 +106,11 @@ static void	sort_small_b(void)
 			rb_or_rrb(i);
 	}
 	sort_three_b(&(stacks()->head_b));
+	// if (stacks()->all % 2 != 0 && stacks()->size_b == 1)
+	// {
+	// 	while (!check_sorted_asc(stacks()->head_a))
+	// 		ra();
+	// }
 	while (stacks()->size_b)
 		pa();
 }
