@@ -6,150 +6,48 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:23:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/21 22:59:05 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/22 13:54:25 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//FIXME: create error functions when a malloc fails half way there
+/*I guess now what I should do is try to optimize the ra and rra
+pass to b the more ordenated possible*/
 
-static void	sort_small_b(void);
-static void	re_index_b(void);
-void		sort_three_b(t_stack **head);
-static void	rb_or_rrb(int index);
-
-//move to stack B one chunk at a time, and sorting o the way back
-void	new_big_sort(void)
+t_list	*chunks(void)
 {
-	int	begin;
-	int	end;
-	int	check;
+	static t_list	*chunk;
 
-	begin = stacks()->all - stacks()->chunk_size;
-	end = stacks()->all;
-	while (end >= 0)
-	{
-		check = begin;
-		while (check < end)
-		{
-			if (stacks()->head_a->index < end
-				&& stacks()->head_a->index >= begin)
-			{
-				check += pb();
-				if (stacks()->size_b > 1)
-				{
-					if ((stacks()->head_b->index < begin + 3))
-						rb();
-					if (stacks()->head_b->index < 1)
-						sb();
-				}
-			}
-			else
-				rra();
-				//ra_or_rra(begin, end);
-		}
-		//print_infos();
-		re_index_b();
-		sort_small_b();
-		//ft_printf("begin = %d end = %d\n", begin, end);
-		if ((end - stacks()->chunk_size) < 0)
-			break ;
-		end -= stacks()->chunk_size;
-		begin -= stacks()->chunk_size;
-		if (begin < 0)
-			begin = 0;
-	}
-	// while (!check_sorted_asc(stacks()->head_a))
-	// 	rra();
+	return (chunk);
 }
 
-//re-index b using the aux variable instead of the index
-static void	re_index_b(void)
+void	calculate_moves(begin, end)
 {
-	int		*arr;
-	int		i;
-	t_stack	*stack;
-	int		size;
-
-	size = t_stack_size(stacks()->head_b);
-	arr = selection_sort_array(stack_to_array(stacks()->head_b), size);
-	stack = stacks()->head_b;
-	while (stack)
-	{
-		i = -1;
-		while (++i < size)
-		{
-			if (arr[i] == stack->value)
-				stack->aux = i;
-		}
-		stack = stack->next;
-	}
-	free(arr);
-}
-
-/*searching for the bigger numbers, going back to a and then sorting 3 numbers.
-here, the stack b is re-indexed in the camp aux of the stack*/
-static void	sort_small_b(void)
-{
-	int	i;
-
-	i = stacks()->size_b - 1; //6
-	while (stacks()->size_b > 3) //3
-	{
-		if (stacks()->head_b->aux == i)
-		{
-			pa();
-			i --;
-		}
-		else
-			rb_or_rrb(i);
-	}
-	sort_three_b(&(stacks()->head_b));
-	// if (stacks()->all % 2 != 0 && stacks()->size_b == 1)
-	// {
-	// 	while (!check_sorted_asc(stacks()->head_a))
-	// 		ra();
-	// }
-	while (stacks()->size_b)
-		pa();
-}
-
-/*decide for rb or rrb
-always searching for AUX*/
-static void	rb_or_rrb(int index)
-{
-	t_stack	*stack;
+	t_chunk	*chunk;
+	t_stack	*aux;
 	int		i;
 
 	i = 0;
-	stack = stacks()->head_b;
-	while (stack)
+	aux = stacks()->head_a;
+	while (aux)
 	{
-		if ((stack->aux == index)
-			|| i == (stacks()->size_b / 2))
-			break ;
-		stack = stack->next;
-		i ++;
+		if (aux->index >= begin && aux->index < end)
+		{
+			chunk = malloc(sizeof(t_chunk));
+			chunk->index = aux->index;
+			if (i < stacks()->all)
+			{
+				chunk->type_move = RA;
+				chunk->n_moves = i;
+			}
+			else
+			{
+				chunk->type_move = RRA;
+				chunk->n_moves = stacks()->all - i;
+			}
+			ft_lstadd_back(&(chunks()), ft_lstnew((void *)chunk));
+		}
+		aux = aux->next;
 	}
-	if (i < (stacks()->size_a / 2))
-		rb();
-	else
-	{
-		//print_infos();
-		rrb();
-	}
-}
-
-void	sort_three_b(t_stack **head)
-{
-	if (check_sorted_desc(*head))
-		return ;
-	else if ((*head)->aux == 0)
-		rb();
-	else if ((*head)->next->aux == 2 || (*head)->aux == 2)
-		sb();
-	else if (t_stack_last(*head)->aux == 2)
-		rrb();
-	sort_three_b(head);
 }

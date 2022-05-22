@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 18:54:33 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/18 22:30:41 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/22 13:02:14 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ void	reverse_rotate(t_stack **head)
 {
 	t_stack	*aux;
 
+	if (!head || t_stack_size(*head) == 1)
+		return ;
+	if (t_stack_size(*head) <= 2)
+	{
+		swap(head, &((*head)->next));
+		return ;
+	}
 	aux = *head;
 	while ((aux->next)->next)
 		aux = aux->next;
@@ -26,20 +33,32 @@ void	reverse_rotate(t_stack **head)
 
 int	rra(void)
 {
-	reverse_rotate(&(stacks()->head_a));
-	return (ft_printf("rra\n"));
+	if (stacks()->size_a)
+	{
+		reverse_rotate(&(stacks()->head_a));
+		return (ft_printf("rra\n"));
+	}
+	else
+		return (0);
 }
 
 int	rrb(void)
 {
-	reverse_rotate(&(stacks()->head_b));
-	return (ft_printf("rrb\n"));
+	if (stacks()->size_b)
+	{
+		reverse_rotate(&(stacks()->head_b));
+		return (ft_printf("rrb\n"));
+	}
+	else
+		return (0);
 }
 
 int	rrr(void)
 {
-	reverse_rotate(&(stacks()->head_a));
-	reverse_rotate(&(stacks()->head_b));
+	if (stacks()->size_a)
+		reverse_rotate(&(stacks()->head_a));
+	if (stacks()->size_a)
+		reverse_rotate(&(stacks()->head_b));
 	return (ft_printf("rrr\n"));
 }
 

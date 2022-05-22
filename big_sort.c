@@ -6,13 +6,13 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:47:25 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/22 00:17:09 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/22 13:09:45 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rb_or_rrb(int begin, int end);
+void	rb_or_rrb(int begin, int end);
 
 static void	push_to_b(void)
 {
@@ -99,7 +99,7 @@ void	big_sort(void)
 	// 	ft_printf("ordenou!\n");
 }
 
-static void	rb_or_rrb(int begin, int end)
+void	rb_or_rrb(int begin, int end)
 {
 	t_stack	*aux;
 	int		i;
@@ -109,7 +109,6 @@ static void	rb_or_rrb(int begin, int end)
 	while (aux)
 	{
 		if (aux->index >= begin && aux->index < end)
-			//|| i == (stacks()->size_a / 2))
 			break ;
 		aux = aux->next;
 		i ++;

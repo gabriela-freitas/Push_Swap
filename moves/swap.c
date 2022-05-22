@@ -6,13 +6,13 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:07:32 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/18 22:30:49 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/22 12:57:53 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack **head, t_stack **next)
+void	swap(t_stack **head, t_stack **next)
 {
 	t_stack	*aux;
 

@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/21 23:51:37 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/22 13:50:57 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,23 @@ typedef struct s_info
 	int		chunk_size;
 }	t_info;
 
+typedef struct s_chunk
+{
+	int	index;
+	int	n_moves;
+	int	type_move;
+}	t_chunk;
+
+enum e_moves
+{
+	RA = 2,
+	RB,
+	RRA,
+	RRB
+};
+
 void		calculate_ra_rra(int begin, int end);
+void		rb_or_rrb(int begin, int end);
 
 //new_lists.c
 t_stack		*t_stack_last(t_stack *lst);
@@ -59,6 +75,7 @@ int			pa(void);
 int			pb(void);
 int			px(char id);
 //swap.c
+void		swap(t_stack **head, t_stack **next);
 int			sb(void);
 int			ss(void);
 int			sa(void);
