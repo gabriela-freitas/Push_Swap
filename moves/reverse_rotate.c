@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 18:54:33 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/22 13:02:14 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:28:21 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,4 @@ int	rrr(void)
 	if (stacks()->size_a)
 		reverse_rotate(&(stacks()->head_b));
 	return (ft_printf("rrr\n"));
-}
-
-int	rrx(char id)
-{
-	if (id == 'a')
-		return (rra());
-	else
-		return (rrb());
 }

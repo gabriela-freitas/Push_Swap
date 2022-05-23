@@ -6,11 +6,16 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 22:41:22 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/21 23:59:16 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:41:34 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int			check_sorted_asc(t_stack *stack);
+void		ra_or_rra(int begin, int end);
+int			*stack_to_array(t_stack *head);
+int			check_last_move(void);
 
 //check if a stack is sorted >> ascending order
 int	check_sorted_asc(t_stack *stack)
@@ -21,22 +26,6 @@ int	check_sorted_asc(t_stack *stack)
 	while (temp && temp->next)
 	{
 		if (temp->value > temp->next->value)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
-}
-
-//FIXME: used only on new big sort
-//check if a stack is sorted >> descending order
-int	check_sorted_desc(t_stack *stack)
-{
-	t_stack		*temp;
-
-	temp = stack;
-	while (temp && temp->next)
-	{
-		if (temp->value < temp->next->value)
 			return (0);
 		temp = temp->next;
 	}

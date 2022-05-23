@@ -6,14 +6,13 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 21:38:04 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 17:47:31 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:39:40 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		sort_three(t_stack **head);
-void		small_sort(void);
+static void		sort_three(t_stack **head);
 
 void	small_sort(void)
 {
@@ -39,7 +38,7 @@ void	small_sort(void)
 	small_sort();
 }
 
-void	sort_three(t_stack **head)
+static void	sort_three(t_stack **head)
 {
 	static int	size;
 

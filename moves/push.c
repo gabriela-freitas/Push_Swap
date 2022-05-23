@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 15:11:08 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/19 17:53:40 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:28:14 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,4 @@ int	pb(void)
 	stacks()->size_b = t_stack_size(stacks()->head_b);
 	ft_printf("pb\n");
 	return (1);
-}
-
-int	px(char id)
-{
-	if (id == 'a')
-		return (pb());
-	else
-		return (pa());
 }

@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:07:32 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/22 12:57:53 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:28:33 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,4 @@ int	ss(void)
 	swap(&(stacks()->head_a), &(stacks()->head_a->next));
 	swap(&(stacks()->head_b), &(stacks()->head_b->next));
 	return (ft_printf("ss\n"));
-}
-
-int	sx(char id)
-{
-	if (id == 'a')
-		return (sa());
-	else
-		return (sb());
 }

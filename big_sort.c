@@ -6,13 +6,21 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:47:25 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/23 21:24:59 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:31:46 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb_or_rrb(int begin, int end);
+static void	rb_or_rrb(int begin, int end);
+static void	push_to_b(void);
+static void	get_back(void);
+
+void	big_sort(void)
+{
+	push_to_b();
+	get_back();
+}
 
 static void	push_to_b(void)
 {
@@ -69,13 +77,7 @@ static void	get_back(void)
 	}
 }
 
-void	big_sort(void)
-{
-	push_to_b();
-	get_back();
-}
-
-void	rb_or_rrb(int begin, int end)
+static void	rb_or_rrb(int begin, int end)
 {
 	t_stack	*aux;
 	int		i;
