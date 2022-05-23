@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:47:25 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/22 13:09:45 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:03:28 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,14 @@ static void	push_to_b(void)
 				&& stacks()->head_a->index >= begin)
 			{
 				check += pb();
+				//ft_printf("hey\n");
 			}
 			else
-				//calculate_ra_rra(begin, end);
-				ra_or_rra(begin, end);
+			{
+				calculate_moves(begin, end);
+				decide_moves();
+				//ra_or_rra(begin, end);
+			}
 		}
 		//ft_printf("begin = %d end = %d\n", begin, end);
 		end += stacks()->chunk_size;
@@ -70,11 +74,11 @@ static void	get_back(void)
 				}
 			}
 			/*FIXME: n entendi pq da crash*/
-			// if (stacks()->size_b > 1)
+			// if (stacks()->size_b > 1 && stacks()->size_b < 4)
 			// {
-			// 	if (stacks()->head_b->next->index < end
-			// 		&& stacks()->head_b->next->index >= begin)
-			// 		sb();
+				// if (stacks()->size_b > 1 && stacks()->head_b->next->index < end
+				// 	&& stacks()->head_b->next->index >= begin)
+				// 	sb();
 			// }
 			else
 				rb_or_rrb(begin, end);
@@ -92,11 +96,7 @@ static void	get_back(void)
 void	big_sort(void)
 {
 	push_to_b();
-	//print_infos();
 	get_back();
-	//print_infos();
-	// if (check_sorted_asc(stacks()->head_a))
-	// 	ft_printf("ordenou!\n");
 }
 
 void	rb_or_rrb(int begin, int end)

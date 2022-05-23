@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/22 13:50:57 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 18:31:37 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,8 @@ void		ra_or_rra(int begin, int end);
 void		big_sort(void);
 
 //new_big_sort.c
-void		sort_three_b(t_stack **head);
-void		new_big_sort(void);
+void		decide_moves(void);
+void		calculate_moves(int begin, int end);
+t_list		**chunks(void);
+
 #endif
