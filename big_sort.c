@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 21:47:25 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/23 21:03:28 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:24:59 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	push_to_b(void)
 
 	begin = 0;
 	end = stacks()->chunk_size;
-	//print_infos();
 	while (begin < stacks()->all)
 	{
 		check = begin;
@@ -30,18 +29,10 @@ static void	push_to_b(void)
 		{
 			if (stacks()->head_a->index < end
 				&& stacks()->head_a->index >= begin)
-			{
 				check += pb();
-				//ft_printf("hey\n");
-			}
 			else
-			{
-				calculate_moves(begin, end);
-				decide_moves();
-				//ra_or_rra(begin, end);
-			}
+				ra_or_rra(begin, end);
 		}
-		//ft_printf("begin = %d end = %d\n", begin, end);
 		end += stacks()->chunk_size;
 		begin += stacks()->chunk_size;
 		if (end > stacks()->all)
@@ -51,45 +42,30 @@ static void	push_to_b(void)
 
 static void	get_back(void)
 {
-	int	begin;
-	int	end;
+	int	range[2];
 	int	check;
 
 	stacks()->chunk_size = 2;
-	begin = stacks()->all - stacks()->chunk_size;
-	end = stacks()->all;
-	while (end >= 0)
+	range[0] = stacks()->all - stacks()->chunk_size;
+	range[1] = stacks()->all;
+	while (range[1] >= 0)
 	{
-		check = begin;
-		while (check < end)
+		check = range[0];
+		while (check < range[1])
 		{
-			if (stacks()->head_b->index < end
-				&& stacks()->head_b->index >= begin)
-			{
+			if (stacks()->head_b->index < range[1]
+				&& stacks()->head_b->index >= range[0])
 				check += pa();
-				if (stacks()->size_a > 1)
-				{
-					if (stacks()->head_a->index > stacks()->head_a->next->index)
-						sa();
-				}
-			}
-			/*FIXME: n entendi pq da crash*/
-			// if (stacks()->size_b > 1 && stacks()->size_b < 4)
-			// {
-				// if (stacks()->size_b > 1 && stacks()->head_b->next->index < end
-				// 	&& stacks()->head_b->next->index >= begin)
-				// 	sb();
-			// }
 			else
-				rb_or_rrb(begin, end);
+				rb_or_rrb(range[0], range[1]);
+			if (stacks()->size_a > 1
+				&& stacks()->head_a->index > stacks()->head_a->next->index)
+				sa();
 		}
-		//ft_printf("begin = %d end = %d\n", begin, end);
-		if ((end - stacks()->chunk_size) < 0)
-			break ;
-		end -= stacks()->chunk_size;
-		begin -= stacks()->chunk_size;
-		if (begin < 0)
-			begin = 0;
+		range[1] -= stacks()->chunk_size;
+		range[0] -= stacks()->chunk_size;
+		if (range[0] < 0)
+			range[0] = 0;
 	}
 }
 
