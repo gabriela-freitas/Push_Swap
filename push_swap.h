@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/23 21:38:59 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/23 21:54:31 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,5 @@ int			check_last_move(void);
 int			check_sorted_asc(t_stack *stack);
 int			*stack_to_array(t_stack *head);
 void		ra_or_rra(int begin, int end);
-
 
 #endif
