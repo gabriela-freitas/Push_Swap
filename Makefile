@@ -6,7 +6,7 @@
 #    By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 22:23:09 by gafreita          #+#    #+#              #
-#    Updated: 2022/05/23 21:43:29 by gafreita         ###   ########.fr        #
+#    Updated: 2022/05/25 14:35:57 by gafreita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME =	push_swap
 # 		utils_sort.c
 
 SRCS =  utils/new_lists.c \
-		big_sort.c \
+		sorting/big_sort.c \
 		print_stuff.c \
 		moves/push.c \
 		push_swap.c \
@@ -34,7 +34,7 @@ SRCS =  utils/new_lists.c \
 		moves/swap.c \
 		utils/utils_lists.c \
 		utils/utils_sort.c \
-		small_sort.c
+		sorting/small_sort.c
 
 OBJS =	$(SRCS:%.c=%.o)
 
