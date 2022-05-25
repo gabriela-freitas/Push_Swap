@@ -6,7 +6,7 @@
 /*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:51:03 by gafreita          #+#    #+#             */
-/*   Updated: 2022/05/23 21:54:31 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/05/25 14:34:03 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
-	int				aux;
 	struct s_stack	*next;
 }	t_stack;
 
