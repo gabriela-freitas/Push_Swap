@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gafreita <gafreita@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 20:05:33 by gafreita          #+#    #+#             */
-/*   Updated: 2022/03/09 18:46:05 by gafreita         ###   ########.fr       */
+/*   Updated: 2022/07/23 17:28:19 by gafreita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ static int	ft_u_base(unsigned int n, char *base)
 {
 	unsigned int	temp;
 
-	if (n < 0)
-		ft_u_base(n, base);
 	temp = n;
 	if (n >= (unsigned long)ft_strlen(base))
 	{

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gafreita <gafreita@student.42.fr>          +#+  +:+       +#+         #
+#    By: gafreita <gafreita@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/19 22:23:09 by gafreita          #+#    #+#              #
-#    Updated: 2022/05/25 14:35:57 by gafreita         ###   ########.fr        #
+#    Updated: 2022/07/23 17:28:56 by gafreita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRCS =  utils/new_lists.c \
 
 OBJS =	$(SRCS:%.c=%.o)
 
-CC = gcc -Wall -Wextra -Werror -fsanitize=address
+CC = gcc -Wall -Wextra -Werror
 
 INCLUDES = -Ilibft/ -I../Push_Swap
 
